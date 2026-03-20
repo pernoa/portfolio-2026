@@ -13,26 +13,26 @@ const COMPANIES = {
     whyCards: [
       {
         num: '01',
-        title: '아르고 퍼널, 지금 바로 설계할 수 있습니다',
-        desc: '올거나이즈에서 MQL부터 세일즈 핸드오프까지 전환 퍼널을 직접 만들어봤습니다. 아르고의 MQL→계약 흐름도 같은 방식으로 빠르게 세팅 가능합니다.'
+        title: '아르고 퍼널, 바로 세팅할 수 있습니다',
+        desc: '올거나이즈에서 MQL→세일즈 핸드오프 퍼널을 아무것도 없는 데서 만들어봤습니다. 아르고도 같은 구조라 빠르게 적용 가능합니다.'
       },
       {
         num: '02',
-        title: '마케팅 조직이 없는 곳에서 시작해봤습니다',
-        desc: '두 번이나 "마케팅 팀이 없는 회사"에 들어가서 팀을 만들고 성과 체계를 세웠습니다. 테크타카의 신설 조직과 상황이 비슷합니다.'
+        title: '팀 없는 곳에서 시작하는 건 익숙합니다',
+        desc: '"마케팅 팀이 없는 회사"에 두 번 들어가봤습니다. 채용, OKR 세팅, 성과 체계까지 직접 만들었고요. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.'
       },
       {
         num: '03',
-        title: '도메인이 바뀌어도 성과를 냈습니다',
-        desc: '엔터프라이즈 AI, 글로벌 SaaS, 공공미술까지 — 산업이 바뀔 때마다 데이터로 시장을 파악하고 적응했습니다. 물류 SaaS도 같은 방식으로 접근할 수 있습니다.'
+        title: '맥락 없는 시장에 들어가는 데 거부감이 없습니다',
+        desc: '엔터프라이즈 AI, 글로벌 SaaS, 공공미술 — 매번 처음 보는 산업이었습니다. 그때마다 고객 인터뷰와 데이터로 시장을 파악했고, 결과적으로 성과를 냈습니다. 물류 SaaS도 같은 접근이면 충분하다고 생각합니다.'
       }
     ],
     jdRows: [
-      { req: '전략 & 퍼널 관리',   project: '올거나이즈',           result: 'GTM·Mixpanel 전환 퍼널 0→1 설계' },
-      { req: '리드 제너레이션',     project: '마롱컴퍼니',           result: '문의 KPI 118%↑, 매출 140%↑' },
-      { req: '브랜드 & 메시징',     project: '사운드플랫폼',         result: '유튜브 10만+, 3개월 7만 활성유저' },
-      { req: '데이터 & 실행',       project: '올거나이즈',           result: 'Site Health +33%, Python 자동화' },
-      { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '0→1 팀 구성, OKR·PDCA 도입 ×2' },
+      { req: '전략 & 퍼널 관리',   project: '올거나이즈',           result: 'GTM·Mixpanel로 전환 퍼널 전체 직접 설계·운영' },
+      { req: '리드 제너레이션',     project: '마롱컴퍼니',           result: '리드 KPI 118% 초과, 경쟁사가 랜딩 구조 모방. 매출 1.4배' },
+      { req: '브랜드 & 메시징',     project: '사운드플랫폼',         result: '유튜브 데모 10만 뷰, 런칭 3개월 만에 7만 유저' },
+      { req: '데이터 & 실행',       project: '올거나이즈',           result: 'SEO 점수 22점↑, 리포팅은 Python으로 자동화' },
+      { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '두 곳 다 마케팅 팀이 없어서, 직접 만들고 이끌었음' },
     ]
   }
 };
@@ -132,7 +132,7 @@ else setTheme('dark');
 // ── Typing Animation (Hero) ───────────────────────────────────
 const phrases = [
   'B2B Marketing Strategist & Builder',
-  'Funnel Architect | 0→1 Builder',
+  'Funnel Architect | Team Builder',
   'Data-Driven Marketer | 12yr',
   'Lead Gen · SEO · Automation',
 ];
