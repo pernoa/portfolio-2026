@@ -107,12 +107,14 @@ function getCurrentTheme() {
 function setTheme(theme) {
   root.setAttribute('data-theme', theme);
   localStorage.setItem('portfolio-theme', theme);
-  themeToggle.textContent = theme === 'dark' ? '☀ Light' : '🌙 Dark';
+  if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀ Light' : '🌙 Dark';
 }
 
-themeToggle.addEventListener('click', () => {
-  setTheme(getCurrentTheme() === 'dark' ? 'light' : 'dark');
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    setTheme(getCurrentTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
 
 // Restore saved theme
 const saved = localStorage.getItem('portfolio-theme');

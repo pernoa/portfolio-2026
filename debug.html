@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head><meta charset="UTF-8"><title>JS Debug</title>
+<style>
+  body { font-family: monospace; padding: 2rem; background: #111; color: #0f0; }
+  #log { white-space: pre-wrap; }
+  .status { padding: 0.5rem; margin: 0.2rem 0; }
+  .pass { color: #0f0; }
+  .fail { color: #f00; }
+</style>
+</head>
+<body>
+
+<!-- Minimal DOM stubs for script.js -->
+<nav><ul class="nav-links"><li id="nav-why"><a href="#why">Why</a></li></ul></nav>
+<button id="theme-toggle" class="theme-toggle">☀ Light</button>
+<span id="typing-text"></span><span class="cursor"></span>
+<span class="hero-stat-num" data-target="12" data-suffix="+yr">0yr</span>
+<section id="hero"></section>
+<section id="why">
+  <span class="section-label"></span>
+  <h2 class="section-title"></h2>
+  <div id="why-grid"></div>
+</section>
+<h3 id="jd-section-title"></h3>
+<tbody id="jd-table-body"></tbody>
+<p id="contact-line"></p>
+<div class="scroll-reveal">Scroll Reveal Test</div>
+<div class="git-entry">Git Entry Test</div>
+<div class="skill-bar-item"><div class="skill-bar-fill" data-pct="80"></div></div>
+<div class="project-card"><div class="project-card-inner">Card</div></div>
+<button id="print-btn">Print</button>
+
+<hr/>
+<h3>Debug Log</h3>
+<pre id="log"></pre>
+
+<script>
+const logEl = document.getElementById("log");
+function addLog(prefix, args) {
+  logEl.textContent += prefix + Array.from(args).join(" ") + "\n";
+}
+const origLog = console.log;
+const origErr = console.error;
+console.log = function() { addLog("[LOG] ", arguments); origLog.apply(console, arguments); };
+console.error = function() { addLog("[ERR] ", arguments); origErr.apply(console, arguments); };
+window.onerror = function(msg, url, line, col, err) {
+  addLog("[ERROR] ", [msg, " at line " + line + " col " + col]);
+  return false;
+};
+window.addEventListener("unhandledrejection", function(e) {
+  addLog("[PROMISE] ", [e.reason]);
+});
+addLog("[INFO] ", ["Debug page loaded. Loading script.js..."]);
+</script>
+
+<script src="script.js"></script>
+
+<script>
+addLog("[INFO] ", ["script.js loaded successfully"]);
+addLog("[CHECK] ", ["theme-toggle: " + !!document.getElementById("theme-toggle")]);
+addLog("[CHECK] ", ["typing-text: " + !!document.getElementById("typing-text")]);
+addLog("[CHECK] ", ["data-theme: " + document.documentElement.getAttribute("data-theme")]);
+addLog("[CHECK] ", ["prefersReducedMotion: " + window.matchMedia("(prefers-reduced-motion: reduce)").matches]);
+addLog("[CHECK] ", ["scroll-reveal count: " + document.querySelectorAll(".scroll-reveal").length]);
+addLog("[CHECK] ", ["visible count: " + document.querySelectorAll(".visible").length]);
+
+// Test typing animation
+setTimeout(function() {
+  var t = document.getElementById("typing-text");
+  addLog("[CHECK] ", ["typing-text content after 2s: '" + (t ? t.textContent : "null") + "'"]);
+  if (t && t.textContent.length > 0) {
+    addLog("[PASS] ", ["Typing animation is working"]);
+  } else {
+    addLog("[FAIL] ", ["Typing animation NOT working"]);
+  }
+}, 2000);
+</script>
+</body></html>
