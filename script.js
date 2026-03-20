@@ -94,6 +94,7 @@ function initCompany() {
 
 initCompany();
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ── Theme Toggle ──────────────────────────────────────────────
 const themeToggle = document.getElementById('theme-toggle');
@@ -158,7 +159,11 @@ function typeLoop() {
   setTimeout(typeLoop, delay);
 }
 
-setTimeout(typeLoop, 800);
+if (prefersReducedMotion) {
+  if (typingEl) typingEl.textContent = phrases[0];
+} else {
+  setTimeout(typeLoop, 800);
+}
 
 
 // ── Scroll Reveal (IntersectionObserver) ─────────────────────
@@ -184,6 +189,13 @@ function animateCountUp(el) {
   const target = parseFloat(el.dataset.target);
   const suffix = el.dataset.suffix || '';
   const prefix = el.dataset.prefix || '';
+
+  if (prefersReducedMotion) {
+    const formatted = target % 1 !== 0 ? target.toFixed(1) : Math.round(target).toLocaleString('ko-KR');
+    el.textContent = prefix + formatted + suffix;
+    return;
+  }
+
   const duration = 1200;
   const start = performance.now();
 
@@ -193,7 +205,6 @@ function animateCountUp(el) {
     const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
     const current = target * eased;
 
-    // Format: show decimal if target has decimal
     const formatted =
       target % 1 !== 0 ? current.toFixed(1) : Math.round(current).toLocaleString('ko-KR');
     el.textContent = prefix + formatted + suffix;
@@ -245,22 +256,24 @@ document.querySelectorAll('.skill-bar-item').forEach((el) => {
 
 
 // ── 3D Card Tilt ──────────────────────────────────────────────
-document.querySelectorAll('.project-card').forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -4;
-    const rotateY = ((x - cx) / cx) * 4;
-    card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.project-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotateX = ((y - cy) / cy) * -4;
+      const rotateY = ((x - cx) / cx) * 4;
+      card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
   });
-});
+}
 
 
 // ── Smooth Active Nav Link ────────────────────────────────────
