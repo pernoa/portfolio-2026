@@ -15,14 +15,16 @@
     --accent: #0d7377;
     --accent2: #047857;
     --accent-light: #e6f7f5;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --green: #10b981;
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
     --border: #e2e8f0;
     --bg: #f8fafc;
   }
 
-  @page {
-    size: 297mm 210mm;
-    margin: 0;
-  }
+  @page { size: 297mm 210mm; margin: 0; }
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
@@ -32,11 +34,11 @@
     print-color-adjust: exact;
   }
 
-  /* ── Slide Base ── */
+  /* ── Slide ── */
   .slide {
     width: 297mm;
     height: 210mm;
-    padding: 24mm 28mm;
+    padding: 18mm 24mm 14mm;
     position: relative;
     overflow: hidden;
     page-break-after: always;
@@ -45,412 +47,163 @@
   }
   .slide:last-child { page-break-after: auto; }
 
-  /* ── Slide footer ── */
   .slide-footer {
     position: absolute;
-    bottom: 8mm;
-    left: 28mm;
-    right: 28mm;
+    bottom: 6mm;
+    left: 24mm;
+    right: 24mm;
     display: flex;
     justify-content: space-between;
-    font-size: 7pt;
+    font-size: 6.5pt;
     color: var(--muted);
   }
-  .slide-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-  }
+  .slide-num { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
 
-  /* ── Cover Slide ── */
-  .cover {
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 36mm;
-    background: linear-gradient(135deg, #fff 60%, var(--accent-light) 100%);
-  }
-  .cover-accent {
-    width: 60px;
-    height: 4px;
-    background: var(--accent);
-    margin-bottom: 16px;
-    border-radius: 2px;
-  }
-  .cover h1 {
-    font-size: 42pt;
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-  .cover .subtitle {
-    font-size: 16pt;
-    font-weight: 500;
-    color: var(--accent);
-    margin-top: 8px;
-  }
-  .cover .target {
-    display: inline-block;
-    font-size: 10pt;
-    color: var(--accent);
-    border: 1.5px solid var(--accent);
-    padding: 4px 16px;
-    border-radius: 4px;
-    margin-top: 20px;
-    font-weight: 500;
-  }
-  .cover .contact {
-    margin-top: 24px;
-    font-size: 9pt;
-    color: var(--text2);
-    line-height: 1.8;
-  }
-  .cover-side {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 120mm;
-    height: 100%;
-    background: var(--accent);
-    opacity: 0.04;
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-  }
+  /* ── Common ── */
+  .slide-title { font-size: 8pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 4px; }
+  .slide-heading { font-size: 18pt; font-weight: 900; line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .slide-subheading { font-size: 11pt; font-weight: 700; margin-bottom: 10px; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
 
-  /* ── Section Title ── */
-  .slide-title {
-    font-size: 9pt;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 6px;
-  }
-  .slide-heading {
-    font-size: 22pt;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    letter-spacing: -0.01em;
-  }
+  /* ── Cover ── */
+  .cover { justify-content: center; padding-left: 32mm; background: linear-gradient(135deg, #fff 60%, var(--accent-light) 100%); }
+  .cover-bar { width: 50px; height: 3px; background: var(--accent); margin-bottom: 12px; border-radius: 2px; }
+  .cover h1 { font-size: 38pt; font-weight: 900; line-height: 1.1; }
+  .cover .sub { font-size: 14pt; font-weight: 500; color: var(--accent); margin-top: 6px; }
+  .cover .target { display: inline-block; font-size: 9pt; color: var(--accent); border: 1.5px solid var(--accent); padding: 3px 14px; border-radius: 4px; margin-top: 16px; font-weight: 500; }
+  .cover .contact { margin-top: 18px; font-size: 9pt; color: var(--text2); line-height: 1.8; }
+  .cover-deco { position: absolute; right: 0; top: 0; width: 110mm; height: 100%; background: var(--accent); opacity: 0.04; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%); }
 
-  /* ── Metrics Slide ── */
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    flex: 1;
-  }
-  .metric-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    border-top: 3px solid var(--accent);
-  }
-  .metric-card .num {
-    font-size: 28pt;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1.1;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .metric-card .label {
-    font-size: 9pt;
-    font-weight: 700;
-    margin-top: 6px;
-    color: var(--text);
-  }
-  .metric-card .sub {
-    font-size: 7.5pt;
-    color: var(--text2);
-    margin-top: 2px;
-  }
+  /* ── Metrics ── */
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: 1; }
+  .m-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px 10px; text-align: center; border-top: 3px solid var(--accent); display: flex; flex-direction: column; justify-content: center; }
+  .m-card .num { font-size: 24pt; font-weight: 900; color: var(--accent); line-height: 1.1; font-family: 'JetBrains Mono', monospace; }
+  .m-card .label { font-size: 8pt; font-weight: 700; margin-top: 4px; }
+  .m-card .sub { font-size: 7pt; color: var(--text2); margin-top: 2px; }
 
-  /* ── JD Mapping ── */
-  .jd-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 9pt;
-  }
-  .jd-table th {
-    background: var(--accent);
-    color: #fff;
-    padding: 8px 12px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 8pt;
-  }
-  .jd-table td {
-    padding: 7px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  .jd-table tr:nth-child(even) td { background: var(--bg); }
-  .badge {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-size: 7.5pt;
-    font-weight: 600;
-  }
+  /* ── JD Table ── */
+  .jd { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  .jd th { background: var(--accent); color: #fff; padding: 6px 10px; text-align: left; font-weight: 600; font-size: 7.5pt; }
+  .jd td { padding: 5px 10px; border-bottom: 1px solid var(--border); }
+  .jd tr:nth-child(even) td { background: var(--bg); }
+  .badge { display: inline-block; background: var(--accent-light); color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 7pt; font-weight: 600; }
 
   /* ── Strength Cards ── */
-  .strengths-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 16px;
-  }
-  .str-card {
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    border-left: 3px solid var(--accent);
-    background: #fff;
-  }
-  .str-card .str-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 7.5pt;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .str-card h4 {
-    font-size: 8.5pt;
-    font-weight: 700;
-    margin: 4px 0;
-    line-height: 1.35;
-  }
-  .str-card p {
-    font-size: 7pt;
-    color: var(--text2);
-    line-height: 1.45;
-  }
+  .str-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+  .str { padding: 10px; border: 1px solid var(--border); border-radius: 5px; border-left: 3px solid var(--accent); }
+  .str .sn { font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--accent); font-weight: 600; }
+  .str h4 { font-size: 8pt; font-weight: 700; margin: 3px 0; line-height: 1.3; }
+  .str p { font-size: 6.5pt; color: var(--text2); line-height: 1.4; }
 
-  /* ── Project Cards ── */
-  .projects-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    flex: 1;
-  }
-  .proj-card {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    border-top: 3px solid var(--accent);
-  }
-  .proj-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8pt;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .proj-title {
-    font-size: 12pt;
-    font-weight: 900;
-    margin: 4px 0;
-    line-height: 1.25;
-  }
-  .proj-company {
-    font-size: 7.5pt;
-    color: var(--text2);
-    margin-bottom: 8px;
-  }
-  .proj-period {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 7pt;
-    color: var(--muted);
-  }
-  .proj-desc {
-    font-size: 8pt;
-    color: var(--text2);
-    line-height: 1.5;
-    margin: 8px 0;
-    flex: 1;
-  }
-  .proj-big {
-    font-size: 26pt;
-    font-weight: 900;
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 2px;
-  }
-  .proj-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-top: auto;
-  }
-  .chip {
-    font-size: 7pt;
-    background: var(--accent-light);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-weight: 500;
-  }
+  /* ── Project common ── */
+  .proj-num { font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent); font-weight: 600; }
+  .proj-title { font-size: 13pt; font-weight: 900; margin: 3px 0; line-height: 1.2; }
+  .proj-company { font-size: 7.5pt; color: var(--text2); }
+  .proj-period { font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--muted); }
+  .proj-big { font-size: 28pt; font-weight: 900; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+  .proj-big-label { font-size: 8pt; color: var(--text2); }
 
-  /* ── Third project card (full width) ── */
-  .projects-triple {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 14px;
-    flex: 1;
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
-  /* ── Skills Slide ── */
-  .skills-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    flex: 1;
-  }
-  .skill-bars { display: flex; flex-direction: column; gap: 6px; }
-  .skill-row {
-    display: grid;
-    grid-template-columns: 120px 1fr 30px;
-    align-items: center;
-    gap: 8px;
-    font-size: 8pt;
-  }
-  .skill-name { font-weight: 500; }
-  .skill-track {
-    height: 8px;
-    background: #eee;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .skill-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    border-radius: 4px;
-  }
-  .skill-pct {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 7pt;
-    color: var(--text2);
-    text-align: right;
-  }
+  /* ── Delta cards ── */
+  .deltas { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 6px; }
+  .delta { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; text-align: center; }
+  .delta .dl { font-size: 6.5pt; color: var(--text2); }
+  .delta .db { font-size: 7pt; color: var(--red); font-weight: 600; }
+  .delta .da { font-size: 10pt; font-weight: 800; color: var(--green); }
+  .delta .dp { font-size: 7pt; font-weight: 700; color: var(--accent); display: block; margin-top: 2px; }
 
-  .tools-section { display: flex; flex-direction: column; gap: 10px; }
-  .tools-group-title {
-    font-size: 7.5pt;
-    font-weight: 700;
-    color: var(--text2);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 2px;
-  }
-  .tools-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-  .tool-tag {
-    font-size: 7.5pt;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 3px 8px;
-    border-radius: 3px;
-  }
+  /* ── Achievement list ── */
+  .ach { list-style: none; padding: 0; }
+  .ach li { font-size: 7.5pt; padding: 2px 0; padding-left: 12px; position: relative; line-height: 1.5; }
+  .ach li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 8pt; }
+
+  /* ── Tags ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
+  .tag { font-size: 6.5pt; background: var(--accent-light); color: var(--accent); padding: 2px 6px; border-radius: 2px; font-weight: 500; }
+
+  /* ── Screenshot ── */
+  .ss-frame { border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+  .ss-header { background: var(--bg); padding: 4px 8px; display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--border); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .dot-r { background: #ef4444; } .dot-y { background: #f59e0b; } .dot-g { background: #10b981; }
+  .ss-label { font-size: 6pt; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-left: 4px; }
+  .ss-frame img { width: 100%; display: block; }
+  .ss-caption { font-size: 6pt; color: var(--muted); margin-top: 3px; font-style: italic; }
+
+  /* ── Bar chart ── */
+  .bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .bar-label { font-size: 7pt; min-width: 55px; text-align: right; color: var(--text2); }
+  .bar-track { flex: 1; height: 14px; background: #eee; border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .bar-val { font-size: 7pt; min-width: 45px; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+
+  /* ── SVG funnel ── */
+  .svg-funnel { width: 100%; max-height: 200px; }
+
+  /* ── Code block ── */
+  .code-box { background: #1e1e2e; border-radius: 5px; overflow: hidden; }
+  .code-header { background: #2d2d44; padding: 4px 8px; display: flex; align-items: center; gap: 4px; }
+  .code-header .cd { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .cd-r { background: #ef4444; } .cd-y { background: #f59e0b; } .cd-g { background: #10b981; }
+  .code-fn { font-size: 6pt; color: #888; font-family: 'JetBrains Mono', monospace; margin-left: 4px; }
+  .code-body { padding: 8px 10px; font-size: 7pt; line-height: 1.5; font-family: 'JetBrains Mono', monospace; color: #ccc; white-space: pre; }
+  .ck { color: #c678dd; } .cs { color: #98c379; } .cv { color: #e06c75; } .cc { color: #5c6370; } .cf { color: #61afef; }
+
+  /* ── Funnel steps ── */
+  .funnel-flow { display: flex; gap: 4px; align-items: center; }
+  .f-step { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; text-align: center; flex: 1; }
+  .f-step .f-label { font-size: 7pt; font-weight: 700; }
+  .f-step .f-sub { font-size: 6pt; color: var(--text2); }
+  .f-arrow { color: var(--accent); font-size: 10pt; font-weight: 700; }
+  .f-step.final { border-color: var(--green); border-width: 2px; }
+  .f-step.final .f-label { color: var(--green); }
+
+  /* ── Progress ring (inline SVG) ── */
+  .ring-group { display: flex; align-items: center; gap: 12px; }
+
+  /* ── Additional cards ── */
+  .add-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: 1; }
+  .add-card { border: 1px solid var(--border); border-radius: 5px; padding: 10px; border-top: 2px solid var(--accent); }
+  .add-card h4 { font-size: 8pt; font-weight: 700; margin-bottom: 6px; }
+  .add-list { list-style: none; padding: 0; }
+  .add-list li { font-size: 6.5pt; padding: 3px 0; border-bottom: 1px solid #f0f0f5; display: flex; justify-content: space-between; align-items: center; }
+  .add-badge { font-size: 6pt; background: var(--accent-light); color: var(--accent); padding: 1px 4px; border-radius: 2px; white-space: nowrap; }
+
+  /* ── Skills ── */
+  .sk-row { display: grid; grid-template-columns: 100px 1fr 26px; align-items: center; gap: 6px; font-size: 7.5pt; padding: 2px 0; }
+  .sk-name { font-weight: 500; }
+  .sk-track { height: 7px; background: #eee; border-radius: 3px; overflow: hidden; }
+  .sk-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 3px; }
+  .sk-pct { font-family: 'JetBrains Mono', monospace; font-size: 6.5pt; color: var(--text2); text-align: right; }
+
+  .tools-sec { display: flex; flex-direction: column; gap: 8px; }
+  .tg-title { font-size: 7pt; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.08em; }
+  .tg-wrap { display: flex; flex-wrap: wrap; gap: 3px; }
+  .tg { font-size: 6.5pt; background: var(--bg); border: 1px solid var(--border); padding: 2px 6px; border-radius: 2px; }
 
   /* ── Timeline ── */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .tl-row {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 10px;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 8pt;
-  }
-  .tl-period {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 7pt;
-    color: var(--muted);
-  }
+  .tl { display: flex; flex-direction: column; gap: 5px; }
+  .tl-row { display: grid; grid-template-columns: 70px 1fr; gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 7.5pt; }
+  .tl-period { font-family: 'JetBrains Mono', monospace; font-size: 6.5pt; color: var(--muted); }
   .tl-title { font-weight: 700; }
-  .tl-sub { font-size: 7pt; color: var(--text2); }
-  .tl-result { font-size: 7pt; color: var(--accent); }
+  .tl-sub { font-size: 6.5pt; color: var(--text2); }
+  .tl-result { font-size: 6.5pt; color: var(--accent); }
 
-  /* ── Why Slide ── */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    flex: 1;
-  }
-  .why-card {
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    border-top: 3px solid var(--accent);
-    display: flex;
-    flex-direction: column;
-  }
-  .why-card .why-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10pt;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .why-card h3 {
-    font-size: 11pt;
-    font-weight: 900;
-    margin: 8px 0;
-    line-height: 1.3;
-  }
-  .why-card p {
-    font-size: 8pt;
-    color: var(--text2);
-    line-height: 1.55;
-    flex: 1;
-  }
+  /* ── Why cards ── */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; flex: 1; }
+  .why-card { padding: 16px; border: 1px solid var(--border); border-radius: 6px; border-top: 3px solid var(--accent); display: flex; flex-direction: column; }
+  .why-card .wn { font-family: 'JetBrains Mono', monospace; font-size: 9pt; font-weight: 700; color: var(--accent); }
+  .why-card h3 { font-size: 10pt; font-weight: 900; margin: 6px 0; line-height: 1.3; }
+  .why-card p { font-size: 7.5pt; color: var(--text2); line-height: 1.5; }
 
-  /* ── Closing Slide ── */
-  .closing {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, var(--accent-light) 0%, #fff 50%, var(--accent-light) 100%);
-  }
-  .closing h2 {
-    font-size: 28pt;
-    font-weight: 900;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .closing .closing-sub {
-    font-size: 12pt;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 28px;
-  }
-  .closing .closing-info {
-    font-size: 10pt;
-    color: var(--text2);
-    line-height: 2;
-  }
-  .closing .closing-url {
-    margin-top: 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9pt;
-    color: var(--accent);
-    background: var(--accent-light);
-    display: inline-block;
-    padding: 6px 20px;
-    border-radius: 4px;
-  }
+  /* ── Closing ── */
+  .closing { justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, var(--accent-light) 0%, #fff 50%, var(--accent-light) 100%); }
+  .closing h2 { font-size: 26pt; font-weight: 900; margin-bottom: 6px; }
+  .closing .cs { font-size: 11pt; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+  .closing .ci { font-size: 9pt; color: var(--text2); line-height: 2; }
+  .closing .cu { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--accent); background: var(--accent-light); display: inline-block; padding: 5px 16px; border-radius: 4px; }
 
   @media print {
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -461,81 +214,40 @@
 </head>
 <body>
 
-<!-- ═══════════ SLIDE 1: COVER ═══════════ -->
+<!-- ════════ 01 COVER ════════ -->
 <div class="slide cover">
-  <div class="cover-accent"></div>
+  <div class="cover-bar"></div>
   <h1>김지수</h1>
-  <div class="subtitle">B2B Marketing Strategist & Builder</div>
+  <div class="sub">B2B Marketing Strategist & Builder</div>
   <span class="target">for 테크타카 — B2B Marketing Lead</span>
-  <div class="contact">
-    010-3479-2349 · pernoa@naver.com<br/>
-    12+ years · B2B SaaS · B2C SaaS · B2B/B2G
-  </div>
-  <div class="cover-side"></div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">01 / 08</span>
-  </div>
+  <div class="contact">010-3479-2349 · pernoa@naver.com<br/>12+ years · B2B SaaS · B2C SaaS · B2B/B2G</div>
+  <div class="cover-deco"></div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">01 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 2: KEY METRICS ═══════════ -->
+<!-- ════════ 02 DASHBOARD ════════ -->
 <div class="slide">
   <div class="slide-title">Performance Dashboard</div>
   <div class="slide-heading">핵심 성과 지표</div>
   <div class="metrics-grid">
-    <div class="metric-card">
-      <span class="num">118%</span>
-      <span class="label">B2B 리드 KPI 초과</span>
-      <span class="sub">마롱컴퍼니</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">140%↑</span>
-      <span class="label">매출 성장</span>
-      <span class="sub">마롱컴퍼니</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">-83%</span>
-      <span class="label">CPA 절감</span>
-      <span class="sub">₩12K → ₩2K · 사운드플랫폼</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">14.3%</span>
-      <span class="label">콘텐츠 전환율</span>
-      <span class="sub">업계 평균의 14배 · 올거나이즈</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">80개국</span>
-      <span class="label">글로벌 확장</span>
-      <span class="sub">10개월 5만명 · 사운드플랫폼</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">+33%</span>
-      <span class="label">Site Health</span>
-      <span class="sub">67 → 90점 · 올거나이즈</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">신규</span>
-      <span class="label">전환 퍼널 직접 설계</span>
-      <span class="sub">GTM · Mixpanel · 올거나이즈</span>
-    </div>
-    <div class="metric-card">
-      <span class="num">×2</span>
-      <span class="label">팀 빌딩 경험</span>
-      <span class="sub">신설 + 확장 · OKR · PDCA</span>
-    </div>
+    <div class="m-card"><span class="num">118%</span><span class="label">B2B 리드 KPI 초과</span><span class="sub">마롱컴퍼니</span></div>
+    <div class="m-card"><span class="num">140%↑</span><span class="label">매출 성장</span><span class="sub">경쟁 심화 시기 · 마롱컴퍼니</span></div>
+    <div class="m-card"><span class="num">-83%</span><span class="label">CPA 절감</span><span class="sub">₩12K → ₩2K · 사운드플랫폼</span></div>
+    <div class="m-card"><span class="num">14.3%</span><span class="label">콘텐츠 전환율</span><span class="sub">업계 평균의 14배 · 올거나이즈</span></div>
+    <div class="m-card"><span class="num">80개국</span><span class="label">글로벌 확장</span><span class="sub">10개월 5만명 · 사운드플랫폼</span></div>
+    <div class="m-card"><span class="num">+33%</span><span class="label">Site Health 향상</span><span class="sub">67 → 90점 · 올거나이즈</span></div>
+    <div class="m-card"><span class="num">신규</span><span class="label">전환 퍼널 직접 설계</span><span class="sub">GTM · Mixpanel · 올거나이즈</span></div>
+    <div class="m-card"><span class="num">×2</span><span class="label">팀 빌딩 경험</span><span class="sub">신설 + 확장 · OKR · PDCA 도입</span></div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">02 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">02 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 3: JD MAPPING + STRENGTHS ═══════════ -->
+<!-- ════════ 03 JD MAPPING + STRENGTHS ════════ -->
 <div class="slide">
   <div class="slide-title">JD Fit Analysis</div>
   <div class="slide-heading">테크타카 JD ↔ 내 경험</div>
-  <table class="jd-table">
-    <thead><tr><th style="width:22%">JD 핵심 요건</th><th style="width:18%">해당 프로젝트</th><th>핵심 성과</th></tr></thead>
+  <table class="jd">
+    <thead><tr><th style="width:20%">JD 핵심 요건</th><th style="width:18%">해당 프로젝트</th><th>핵심 성과</th></tr></thead>
     <tbody>
       <tr><td><strong>전략 & 퍼널 관리</strong></td><td><span class="badge">올거나이즈</span></td><td>GTM · Mixpanel로 전환 퍼널 전체를 직접 설계 · 운영 중</td></tr>
       <tr><td><strong>리드 제너레이션</strong></td><td><span class="badge">마롱컴퍼니</span></td><td>리드 KPI 118% 초과, 경쟁사가 랜딩 구조 모방. 매출 1.4배</td></tr>
@@ -544,260 +256,473 @@
       <tr><td><strong>조직 리딩</strong></td><td><span class="badge">사운드플랫폼 · 마롱</span></td><td>사운드플랫폼 팀 신설 + 마롱 전임자 이어받아 팀 확장 · 리드</td></tr>
     </tbody>
   </table>
-  <div class="strengths-grid">
-    <div class="str-card">
-      <span class="str-num">퍼널</span>
-      <h4>트래킹 인프라가 없길래, 직접 깔았습니다</h4>
-      <p>GTM · Mixpanel · Zapier→슬랙 알림 · 세일즈 핸드오프까지 전체 퍼널 설계</p>
-    </div>
-    <div class="str-card">
-      <span class="str-num">데이터</span>
-      <h4>리포트 기다리느니 직접 만듭니다</h4>
-      <p>Semrush API, Mixpanel API로 자동화. 스프레드시트 → 코드로 진화</p>
-    </div>
-    <div class="str-card">
-      <span class="str-num">조직</span>
-      <h4>"마케팅 팀 없는 회사"에 두 번</h4>
-      <p>사운드플랫폼 신설, 마롱 확장. OKR · PDCA 최초 도입</p>
-    </div>
-    <div class="str-card">
-      <span class="str-num">실행</span>
-      <h4>마케터인데 코드를 씁니다</h4>
-      <p>SEO 리포팅, 문의 알림을 Python으로 직접 구축</p>
-    </div>
+  <div class="str-grid">
+    <div class="str"><span class="sn">퍼널</span><h4>트래킹 인프라가 없길래, 직접 깔았습니다</h4><p>GTM · Mixpanel · Zapier→슬랙 알림 · 세일즈 핸드오프까지 전체 퍼널 설계</p></div>
+    <div class="str"><span class="sn">데이터</span><h4>리포트 기다리느니 직접 만듭니다</h4><p>Semrush API, Mixpanel API로 자동화. 스프레드시트 → 코드로 진화</p></div>
+    <div class="str"><span class="sn">조직</span><h4>"마케팅 팀 없는 회사"에 두 번</h4><p>사운드플랫폼 신설, 마롱 확장. OKR · PDCA 최초 도입</p></div>
+    <div class="str"><span class="sn">실행</span><h4>마케터인데 코드를 씁니다</h4><p>SEO 리포팅, 문의 알림을 Python으로 직접 구축</p></div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">03 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">03 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 4: PROJECT 01 + 02 ═══════════ -->
+<!-- ════════ 04 PROJECT 01: 올거나이즈 퍼널 ════════ -->
 <div class="slide">
-  <div class="slide-title">Key Projects — 올거나이즈코리아</div>
-  <div class="slide-heading">퍼널 인프라 구축 & 콘텐츠 전환율 14배</div>
-  <div class="projects-row">
-    <div class="proj-card">
-      <span class="proj-num">PROJECT 01</span>
-      <div class="proj-title">마케팅 트래킹부터 세일즈 연계까지 혼자 세팅</div>
-      <div class="proj-company">올거나이즈코리아 — Alli 엔터프라이즈 AI</div>
-      <span class="proj-period">2025.08 – 현재</span>
-      <p class="proj-desc">콘텐츠 마케터(영상·홍보)는 있었지만 퍼포먼스 트래킹은 전무한 상태. GTM 태깅부터 Mixpanel 퍼널, Zapier→슬랙 문의 알림, 유입 채널별 분리 체크, MQL/SQL 분류→너처링 프로세스까지 설계·세팅했습니다.</p>
-      <div class="proj-chips">
-        <span class="chip">전환 퍼널 신규 설계</span>
-        <span class="chip">GTM + Mixpanel</span>
-        <span class="chip">Zapier→슬랙</span>
-        <span class="chip">MQL/SQL→너처링</span>
-        <span class="chip">리멤버 리드젠</span>
-      </div>
+  <div class="slide-title">Project 01 — 올거나이즈코리아</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline;">
+    <div class="slide-heading" style="margin-bottom:8px;">B2B SaaS 마케팅 인프라 · 퍼널 구축</div>
+    <span class="proj-period">2025.08 – 현재</span>
+  </div>
+  <div style="font-size:7.5pt; color:var(--text2); margin-bottom:10px;">콘텐츠 마케터(영상·홍보) 재직 중 퍼포먼스 마케터로 합류 — 퍼포먼스 트래킹 전무한 상태에서 전환 퍼널 전체 신규 설계</div>
+
+  <div class="two-col">
+    <!-- Left: Funnel SVG -->
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:6px;">전환 퍼널 아키텍처</div>
+      <svg class="svg-funnel" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0d7377" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#047857" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <polygon points="20,8 380,8 350,52 50,52" fill="url(#fg)" stroke="#0d7377" stroke-width="1.5" opacity="0.9"/>
+        <polygon points="50,60 350,60 320,104 80,104" fill="url(#fg)" stroke="#0d7377" stroke-width="1.5" opacity="0.75"/>
+        <polygon points="80,112 320,112 290,156 110,156" fill="url(#fg)" stroke="#0d7377" stroke-width="1.5" opacity="0.6"/>
+        <polygon points="110,164 290,164 260,208 140,208" fill="url(#fg)" stroke="#0d7377" stroke-width="1.5" opacity="0.45"/>
+        <polygon points="140,216 260,216 240,260 160,260" fill="url(#fg)" stroke="#047857" stroke-width="2" opacity="0.7"/>
+        <text x="200" y="36" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="600">Google Ads · 리멤버 · 콘텐츠</text>
+        <text x="200" y="86" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="600">Webflow 랜딩 (한/영/일)</text>
+        <text x="200" y="138" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="600">GTM 태깅 → Mixpanel 퍼널</text>
+        <text x="200" y="190" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="600">Zapier → Slack INQ-알림</text>
+        <text x="200" y="244" text-anchor="middle" fill="#047857" font-size="11" font-weight="700">세일즈팀 팔로업</text>
+        <text x="392" y="36" text-anchor="end" fill="#8a8aaa" font-size="8" font-family="JetBrains Mono">유입</text>
+        <text x="392" y="86" text-anchor="end" fill="#8a8aaa" font-size="8" font-family="JetBrains Mono">탐색</text>
+        <text x="392" y="138" text-anchor="end" fill="#8a8aaa" font-size="8" font-family="JetBrains Mono">추적</text>
+        <text x="392" y="190" text-anchor="end" fill="#8a8aaa" font-size="8" font-family="JetBrains Mono">문의</text>
+        <text x="392" y="244" text-anchor="end" fill="#8a8aaa" font-size="8" font-family="JetBrains Mono">전환</text>
+      </svg>
     </div>
-    <div class="proj-card">
-      <span class="proj-num">PROJECT 02</span>
-      <div class="proj-title">콘텐츠 전환율 14.3%</div>
-      <div class="proj-company">올거나이즈코리아 — 콘텐츠 마케터 퇴사 후 인수 → 자동화 구축</div>
-      <span class="proj-period">2025.12 – 현재</span>
-      <div class="proj-big">14.3%</div>
-      <p class="proj-desc">AEO+SEO 파일럿 콘텐츠의 블로그→문의 전환율. B2B 콘텐츠 평균이 1%대인 걸 생각하면, 업계 평균의 14배 성과입니다.</p>
-      <div class="proj-chips">
-        <span class="chip">SEO 67→90점</span>
-        <span class="chip">리포팅 자동화 (Python)</span>
-        <span class="chip">깨진 링크 277건 수정</span>
+
+    <!-- Right: Achievements -->
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:6px;">성과 & 기여</div>
+      <ul class="ach">
+        <li>광고→문의→세일즈 전환 퍼널 전체 신규 설계·운영</li>
+        <li>유입 채널별 분리 체크 + GTM 이벤트 태깅 + Mixpanel 퍼널 가시화</li>
+        <li>Zapier→슬랙 자동전달 + 문의 처리 관리 시스템 구축</li>
+        <li>리포팅 자동생성 체계 확립 (마케팅 성과 대시보드)</li>
+        <li>MQL/SQL 분류 → 너처링(뉴스레터) 프로세스 설계</li>
+        <li>한/영/일 3개 언어 사이트 통합 운영</li>
+        <li>Google Ads + 리멤버 설문형 리드젠 캠페인 운영</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">GTM</span><span class="tag">Mixpanel</span><span class="tag">Zapier</span><span class="tag">Webflow</span><span class="tag" style="background:#d1fae5; color:#047857;">100% 단독 설계</span>
       </div>
     </div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">04 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">04 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 5: PROJECT 03 + 04 ═══════════ -->
+<!-- ════════ 05 PROJECT 01: SCREENSHOTS ════════ -->
 <div class="slide">
-  <div class="slide-title">Key Projects — 마롱컴퍼니 & 사운드플랫폼</div>
-  <div class="slide-heading">리드젠 118% 초과 & 글로벌 CPA 83% 절감</div>
-  <div class="projects-row">
-    <div class="proj-card">
-      <span class="proj-num">PROJECT 03</span>
-      <div class="proj-title">경쟁사가 따라할 정도의 리드젠 성과</div>
-      <div class="proj-company">마롱컴퍼니 — 공공미술·건축미술심의 B2B</div>
-      <span class="proj-period">2021.08 – 2023.08</span>
-      <div class="proj-big">118%</div>
-      <p class="proj-desc">좁은 B2B 시장에서 채널별 랜딩을 다르게 만들고, 영업팀 상담기록의 워딩을 광고 카피에 활용. 경쟁사들이 랜딩을 모방할 정도의 성과. 전임 마케터를 이어받아 팀으로 확장했습니다.</p>
-      <div class="proj-chips">
-        <span class="chip">매출 1.4배 성장</span>
-        <span class="chip">SEO 키워드 30→70%</span>
-        <span class="chip">광고비 1/3 절감</span>
+  <div class="slide-title">Project 01 — Evidence</div>
+  <div class="slide-heading">실제 운영 중인 시스템 스크린샷</div>
+  <div class="two-col" style="gap:14px;">
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">직접 제작·운영 중인 allganize.ai 사이트</div>
+      <div class="ss-frame">
+        <div class="ss-header"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="ss-label">allganize.ai — Webflow (한/영/일)</span></div>
+        <img src="assets/screenshots/allganize-hero.png" alt="올거나이즈 사이트"/>
       </div>
+      <div class="ss-caption">Webflow 기반 직접 제작 · 한/영/일 3개 언어 통합 운영</div>
     </div>
-    <div class="proj-card">
-      <span class="proj-num">PROJECT 04</span>
-      <div class="proj-title">가입 CPA를 6분의 1로 낮춘 글로벌 캠페인</div>
-      <div class="proj-company">사운드플랫폼 — Munute AI 마스터링</div>
-      <span class="proj-period">2023.08 – 2025.03</span>
-      <div class="proj-big">₩12K→₩2K</div>
-      <p class="proj-desc">설명하기 어려운 AI 음악 서비스를 80개국에 알려야 했습니다. 국가·장르·목적별로 타겟을 쪼개며 CPA를 6분의 1로 낮추고, 10개월 만에 5만명 가입. 다국적 마케팅 팀도 직접 빌딩했습니다.</p>
-      <div class="proj-chips">
-        <span class="chip">80개국 진출</span>
-        <span class="chip">연간 광고비 3천만 원 절감</span>
-        <span class="chip">다국적 팀 빌딩</span>
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">실제 운영 중인 Mixpanel 퍼널 대시보드</div>
+      <div class="ss-frame">
+        <div class="ss-header"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="ss-label">mixpanel — 리드 퍼널 성과 요약</span></div>
+        <img src="assets/screenshots/mixpanel-funnel-overview.png" alt="Mixpanel 퍼널"/>
       </div>
+      <div class="ss-caption">직접 설계한 3-step 퍼널(Page View → CTA Click → Inquiry Submit) 실 운영 대시보드</div>
     </div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">05 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">05 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 6: PROJECT 05 + TIMELINE ═══════════ -->
+<!-- ════════ 06 PROJECT 02: 콘텐츠·SEO ════════ -->
 <div class="slide">
-  <div class="slide-title">Brand Building & Career</div>
-  <div class="slide-heading">브랜드 빌딩 경험 & 커리어 타임라인</div>
-  <div class="projects-row">
-    <div class="proj-card">
-      <span class="proj-num">PROJECT 05</span>
-      <div class="proj-title">브랜드 두 개를 처음부터 키운 경험</div>
-      <div class="proj-company">사운드플랫폼 · 리앤사시스템</div>
-      <span class="proj-period">2016 – 2025</span>
-      <p class="proj-desc">Munute는 "AI가 마스터링을 한다고?"라는 반응이 대부분이던 시기에 시작. 인디 뮤지션 커뮤니티 공략, 유튜브 데모 10만 뷰, 3개월 만에 7만 유저.<br/><br/>리앤사시스템에서는 해외 음향 브랜드를 들여와 현아·헤이즈 같은 셀럽이 직접 구매할 정도로 성장, 이마트 입점까지 성사.</p>
-      <div class="proj-chips">
-        <span class="chip">유튜브 10만 뷰</span>
-        <span class="chip">7만 유저 (3개월)</span>
-        <span class="chip">셀럽 마케팅</span>
-        <span class="chip">이마트 입점</span>
+  <div class="slide-title">Project 02 — 올거나이즈코리아</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline;">
+    <div class="slide-heading" style="margin-bottom:8px;">B2B 콘텐츠 마케팅 & SEO 자동화</div>
+    <span class="proj-period">2025.12 – 현재</span>
+  </div>
+  <div style="font-size:7.5pt; color:var(--text2); margin-bottom:8px;">콘텐츠 마케터 퇴사 후 인수 → 자동화 구축 (AEO/SEO 파일럿, 반자동화 발행)</div>
+
+  <div class="two-col">
+    <div>
+      <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:10px;">
+        <span class="proj-big" style="color:#f59e0b;">14.3%</span>
+        <span style="font-size:8pt; color:var(--text2);">콘텐츠 전환율 — 업계 평균 1%의 14배</span>
       </div>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:8px;">
-      <div style="font-size:10pt; font-weight:700; color:var(--accent); margin-bottom:4px;">커리어 타임라인</div>
-      <div class="timeline">
-        <div class="tl-row">
-          <span class="tl-period">2025.08 –<br/>현재</span>
-          <div>
-            <span class="tl-title">올거나이즈코리아</span><br/>
-            <span class="tl-sub">Alli 엔터프라이즈 AI · 마케터</span><br/>
-            <span class="tl-result">전환 퍼널 전체 신규 설계 · 콘텐츠 전환율 14.3% · SEO 자동화</span>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-period">2023.08 –<br/>2025.04</span>
-          <div>
-            <span class="tl-title">사운드플랫폼</span><br/>
-            <span class="tl-sub">Munute AI · 마케팅 팀장</span><br/>
-            <span class="tl-result">80개국 진출 · CPA 83%↓ · 다국적 팀 빌딩</span>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-period">2021.03 –<br/>2023.08</span>
-          <div>
-            <span class="tl-title">마롱컴퍼니</span><br/>
-            <span class="tl-sub">공공미술 B2B · 마케팅 팀장</span><br/>
-            <span class="tl-result">리드 KPI 118% · 매출 1.4배 · OKR 도입</span>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-period">2018.05 –<br/>2021.01</span>
-          <div>
-            <span class="tl-title">무버먼한국</span><br/>
-            <span class="tl-sub">B2B/B2G 디지털마케팅 · 과장</span><br/>
-            <span class="tl-result">KAIST · 문예위 정부캠페인 · 와디즈 3000%</span>
-          </div>
-        </div>
-        <div class="tl-row">
-          <span class="tl-period">2016.02 –<br/>2018.03</span>
-          <div>
-            <span class="tl-title">리앤사시스템</span><br/>
-            <span class="tl-sub">B2C 음향기기 · 마케팅/영업</span><br/>
-            <span class="tl-result">셀럽 마케팅 · 이마트 입점 · 매출 +200%</span>
-          </div>
+
+      <!-- Delta cards -->
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">Before → After</div>
+      <div class="deltas">
+        <div class="delta"><div class="dl">Site Health</div><div class="db">67점</div><div class="da">90점</div><div class="dp">+33%</div></div>
+        <div class="delta"><div class="dl">SEO 리포팅</div><div class="db">수동</div><div class="da">풀 자동</div><div class="dp">Python</div></div>
+        <div class="delta"><div class="dl">블로그 시스템</div><div class="db">없음</div><div class="da">자동화</div><div class="dp">신규</div></div>
+      </div>
+
+      <!-- Bar chart -->
+      <div style="margin-top:10px;">
+        <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">Site Health 개선 추이</div>
+        <div class="bar-row"><span class="bar-label">Before</span><div class="bar-track"><div class="bar-fill" style="width:67%; background:#ef4444;"></div></div><span class="bar-val" style="color:#ef4444;">67점</span></div>
+        <div class="bar-row"><span class="bar-label">After</span><div class="bar-track"><div class="bar-fill" style="width:90%; background:linear-gradient(90deg, #0d7377, #10b981);"></div></div><span class="bar-val" style="color:#10b981;">90점</span></div>
+      </div>
+
+      <!-- Code block -->
+      <div style="margin-top:10px;">
+        <div class="code-box">
+          <div class="code-header"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="code-fn">seo_pipeline.py</span></div>
+          <div class="code-body"><span class="cc"># 실제 운영 중인 SEO 자동화 파이프라인</span>
+pipeline = {
+  <span class="cs">"수집"</span>: <span class="cs">"Semrush API"</span>,
+  <span class="cs">"분석"</span>: <span class="cs">"pandas 추이 비교"</span>,
+  <span class="cs">"수정"</span>: <span class="cs">"277건 깨진링크·스키마"</span>,
+  <span class="cs">"리포팅"</span>: <span class="cs">"텔레그램 자동 발송"</span>,
+  <span class="cs">"스케줄"</span>: <span class="cs">"LaunchAgent 매주 월"</span>,
+}</div>
         </div>
       </div>
     </div>
+
+    <!-- Right: Screenshot -->
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">실제 Semrush Site Audit 현황</div>
+      <div class="ss-frame">
+        <div class="ss-header"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="ss-label">semrush — allganize.ai Site Audit</span></div>
+        <img src="assets/screenshots/semrush-site-health.png" alt="Semrush Site Health"/>
+      </div>
+      <div class="ss-caption">67점에서 시작해 현재 90점 달성 · AI Search Health 88% · Top 10% 수준(92%) 근접</div>
+
+      <div class="tags" style="margin-top:8px;">
+        <span class="tag">SEO 67→90점</span><span class="tag">리포팅 자동화 (Python)</span><span class="tag">깨진 링크 277건 수정</span>
+      </div>
+    </div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">06 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">06 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 7: WHY TECHTAKA ═══════════ -->
+<!-- ════════ 07 PROJECT 03: 마롱 리드젠 ════════ -->
+<div class="slide">
+  <div class="slide-title">Project 03 — 마롱컴퍼니</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline;">
+    <div class="slide-heading" style="margin-bottom:8px;">B2B 리드 제너레이션 극대화</div>
+    <span class="proj-period">2021.08 – 2023.08</span>
+  </div>
+  <div style="font-size:7.5pt; color:var(--text2); margin-bottom:8px;">공공미술·건축미술심의 B2B — 전임 마케터를 이어받아 팀으로 확장, 좁은 시장에서 경쟁사 모방 유발</div>
+
+  <div class="two-col">
+    <div>
+      <!-- KPI Ring + Comparison bars -->
+      <div class="ring-group" style="margin-bottom:12px;">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+          <text x="50" y="46" text-anchor="middle" fill="#10b981" font-size="20" font-weight="800" font-family="JetBrains Mono, monospace">118</text>
+          <text x="50" y="62" text-anchor="middle" fill="#8a8aaa" font-size="9" font-family="JetBrains Mono, monospace">% KPI</text>
+        </svg>
+        <div style="flex:1;">
+          <div class="bar-row"><span class="bar-label">키워드 Before</span><div class="bar-track"><div class="bar-fill" style="width:30%; background:#ef4444;"></div></div><span class="bar-val" style="color:#ef4444;">30%</span></div>
+          <div class="bar-row"><span class="bar-label">→ SEO 후</span><div class="bar-track"><div class="bar-fill" style="width:70%; background:linear-gradient(90deg, #0d7377, #10b981);"></div></div><span class="bar-val" style="color:#10b981;">70%</span></div>
+        </div>
+      </div>
+
+      <!-- Delta cards -->
+      <div class="deltas">
+        <div class="delta"><div class="dl">문의 KPI</div><div class="db">기준</div><div class="da">118%</div><div class="dp">+18%p</div></div>
+        <div class="delta"><div class="dl">사업 매출</div><div class="db">기준</div><div class="da">140%↑</div><div class="dp">+40%</div></div>
+        <div class="delta"><div class="dl">광고비</div><div class="db">₩600만</div><div class="da">₩400만</div><div class="dp">-33%</div></div>
+        <div class="delta"><div class="dl">키워드 점유</div><div class="db">30%</div><div class="da">70%</div><div class="dp">+40%p</div></div>
+      </div>
+    </div>
+
+    <div>
+      <!-- Funnel flow -->
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:6px;">세일즈 협업 구조</div>
+      <div class="funnel-flow" style="flex-wrap:wrap; gap:4px;">
+        <div class="f-step"><div class="f-label">채널별 랜딩페이지</div><div class="f-sub">SNS·SEO·SEM 별도</div></div>
+        <span class="f-arrow">→</span>
+        <div class="f-step"><div class="f-label">A/B 테스트</div><div class="f-sub">카피·디자인·타겟별</div></div>
+        <span class="f-arrow">→</span>
+        <div class="f-step"><div class="f-label">영업팀 VOC</div><div class="f-sub">상담기록 → 메시지 개선</div></div>
+        <span class="f-arrow">→</span>
+        <div class="f-step final"><div class="f-label">KPI 118% 달성</div><div class="f-sub">시장점유율 21%</div></div>
+      </div>
+
+      <div style="margin-top:14px; font-size:7.5pt; color:var(--text2); line-height:1.6;">
+        채널별로 랜딩을 다르게 만들고, 영업팀 상담기록에서 뽑은 워딩을 광고 카피에 넣었습니다. 나중엔 경쟁사들이 우리 랜딩을 거의 그대로 베끼기 시작했는데 — 그래도 리드 KPI는 118% 초과했고, 광고비는 오히려 3분의 1을 줄였습니다.
+      </div>
+      <div class="tags" style="margin-top:8px;"><span class="tag">매출 1.4배</span><span class="tag">SEO 30→70%</span><span class="tag">광고비 1/3 절감</span><span class="tag">경쟁사 모방 유발</span></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">07 / 14</span></div>
+</div>
+
+<!-- ════════ 08 PROJECT 04: 글로벌 GTM ════════ -->
+<div class="slide">
+  <div class="slide-title">Project 04 — 사운드플랫폼</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline;">
+    <div class="slide-heading" style="margin-bottom:8px;">글로벌 GTM & 퍼포먼스 최적화</div>
+    <span class="proj-period">2023.08 – 2025.03</span>
+  </div>
+  <div style="font-size:7.5pt; color:var(--text2); margin-bottom:8px;">AI 음악 마스터링이라는 설명하기 어려운 서비스를 80개국에 알려야 했습니다. 다국적 마케팅 팀도 직접 빌딩.</div>
+
+  <div class="two-col">
+    <div>
+      <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:10px;">
+        <span class="proj-big" style="color:#10b981;">-83%</span>
+        <span style="font-size:8pt; color:var(--text2);">CPA 절감 — ₩12K → ₩2K (업계 평균의 1/6~1/13)</span>
+      </div>
+
+      <!-- CPA Comparison bar -->
+      <div style="margin-bottom:10px;">
+        <div class="bar-row"><span class="bar-label">업계 평균</span><div class="bar-track"><div class="bar-fill" style="width:100%; background:#ef4444; opacity:0.6;"></div></div><span class="bar-val">₩12K~₩26K</span></div>
+        <div class="bar-row"><span class="bar-label">최적화 후</span><div class="bar-track"><div class="bar-fill" style="width:17%; background:#10b981;"></div></div><span class="bar-val" style="color:#10b981;">₩2K</span></div>
+      </div>
+
+      <!-- Deltas -->
+      <div class="deltas">
+        <div class="delta"><div class="dl">가입 CPA</div><div class="db">₩12,000</div><div class="da">₩2,000</div><div class="dp">-83%</div></div>
+        <div class="delta"><div class="dl">구독 CPA</div><div class="db">₩240K</div><div class="da">₩140K</div><div class="dp">-42%</div></div>
+        <div class="delta"><div class="dl">글로벌 회원</div><div class="db">0명</div><div class="da">5만명</div><div class="dp">80개국</div></div>
+        <div class="delta"><div class="dl">광고비 절감</div><div class="db">₩1억</div><div class="da">-₩3천만</div><div class="dp">-30%</div></div>
+      </div>
+
+      <ul class="ach" style="margin-top:8px;">
+        <li>Google Ads · YouTube · Reddit · LinkedIn 글로벌 운영</li>
+        <li>국가·장르·목적별 타겟 세그먼트 세분화</li>
+        <li>지역별 캠페인 분리 + 메시지 A/B 테스트</li>
+        <li>GA · Hotjar · Datadog 행동 데이터 실시간 최적화</li>
+        <li>다국적 마케팅 팀 직접 꾸리고 리드</li>
+      </ul>
+      <div class="tags"><span class="tag">Google Ads</span><span class="tag">YouTube</span><span class="tag">Reddit</span><span class="tag">LinkedIn</span><span class="tag" style="background:#d1fae5; color:#047857;">80개국</span></div>
+    </div>
+
+    <!-- Right: Screenshots -->
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:5px;">실제 Google Ads 글로벌 캠페인 운영</div>
+      <div class="ss-frame" style="margin-bottom:8px;">
+        <div class="ss-header"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="ss-label">google ads — 국가별 · 기기별 분석</span></div>
+        <img src="assets/screenshots/google-ads-global-performance.png" alt="Google Ads 글로벌"/>
+      </div>
+      <div class="ss-caption">멕시코·아르헨티나·브라질 등 국가별 분리 운영 · 모바일 70% 비중 최적화</div>
+
+      <div class="ss-frame" style="margin-top:8px;">
+        <div class="ss-header"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="ss-label">google ads — 캠페인 구조</span></div>
+        <img src="assets/screenshots/google-ads-campaigns.png" alt="캠페인 구조"/>
+      </div>
+      <div class="ss-caption">타겟·전환·트래픽·경쟁사별 캠페인 분리 · 총 ₩1.35억 집행 · 전환 571건</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">08 / 14</span></div>
+</div>
+
+<!-- ════════ 09 PROJECT 05: 브랜드 런칭 ════════ -->
+<div class="slide">
+  <div class="slide-title">Project 05</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline;">
+    <div class="slide-heading" style="margin-bottom:8px;">브랜드 포지셔닝 & 런칭 ×2</div>
+    <span class="proj-period">2016 – 2025</span>
+  </div>
+
+  <div class="two-col">
+    <!-- Munute -->
+    <div style="border:1px solid var(--border); border-radius:6px; padding:14px; border-top:3px solid var(--accent);">
+      <div style="font-size:8pt; font-weight:700; margin-bottom:6px;">🎵 Munute 브랜드 런칭 — 사운드플랫폼</div>
+      <div style="font-size:7.5pt; color:var(--text2); line-height:1.5; margin-bottom:8px;">
+        "AI가 마스터링을 한다고?"라는 반응이 대부분이던 시기에 시작. 인디 뮤지션 커뮤니티를 먼저 공략했고, 유튜브 데모 영상이 10만 뷰를 찍으면서 3개월 만에 7만 유저가 들어왔습니다.
+      </div>
+      <div class="deltas">
+        <div class="delta"><div class="dl">유튜브 조회</div><div class="db">0</div><div class="da">10만+</div><div class="dp">∞</div></div>
+        <div class="delta"><div class="dl">활성 유저</div><div class="db">0</div><div class="da">7만+</div><div class="dp">3개월</div></div>
+      </div>
+      <ul class="ach" style="margin-top:8px;">
+        <li>AI 기술 신뢰도 낮은 시장 → 인접 타겟 인디 뮤지션 공략</li>
+        <li>인플루언서 · 서포터즈 · 박람회(월드IT쇼) 체험 부스 통합 전략</li>
+      </ul>
+    </div>
+
+    <!-- 리앤사 -->
+    <div style="border:1px solid var(--border); border-radius:6px; padding:14px; border-top:3px solid var(--purple);">
+      <div style="font-size:8pt; font-weight:700; margin-bottom:6px;">🎧 음향기기 브랜드 런칭 — 리앤사시스템</div>
+      <div style="font-size:7.5pt; color:var(--text2); line-height:1.5; margin-bottom:8px;">
+        CTM·V-MODA 해외 브랜드 국내 인지도 0에서 시작. 현아·헤이즈·효린 등 셀럽이 직접 사갈 정도로 키웠고, 이마트 입점까지 성사시켰습니다.
+      </div>
+      <div class="deltas">
+        <div class="delta"><div class="dl">SNS 팔로워</div><div class="db">기준</div><div class="da">+350%</div><div class="dp">셀럽 자발 구매</div></div>
+        <div class="delta"><div class="dl">매출</div><div class="db">기준</div><div class="da">+200%</div><div class="dp">이마트 입점</div></div>
+      </div>
+      <ul class="ach" style="margin-top:8px;">
+        <li>셀럽 마케팅 (현아 · 헤이즈 · 효린 자발적 구매 → 바이럴)</li>
+        <li>박람회(KOBA) 체험 부스 + 음향잡지 협업</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">09 / 14</span></div>
+</div>
+
+<!-- ════════ 10 ADDITIONAL CAPABILITIES ════════ -->
+<div class="slide">
+  <div class="slide-title">Additional Capabilities</div>
+  <div class="slide-heading">추가 역량</div>
+  <div class="add-grid">
+    <div class="add-card">
+      <h4>🎪 오프라인 이벤트 & 박람회</h4>
+      <ul class="add-list">
+        <li><span>2026 AI 엑스포 (COEX Hall A)</span><span class="add-badge">기획 중</span></li>
+        <li><span>SK AI Summit 부스</span><span class="add-badge">2025.11</span></li>
+        <li><span>사운드플랫폼 — 월드IT쇼</span><span class="add-badge">2024</span></li>
+        <li><span>리앤사 — KOBA 전시</span><span class="add-badge">2016–18</span></li>
+      </ul>
+    </div>
+    <div class="add-card">
+      <h4>💻 직접 구축한 시스템</h4>
+      <ul class="add-list">
+        <li><span>Mixpanel 퍼널 분석 (6모듈)</span><span class="add-badge">Python</span></li>
+        <li><span>SEO 자동 리포팅</span><span class="add-badge">Semrush API</span></li>
+        <li><span>인바운드 문의 자동 알림</span><span class="add-badge">Zapier</span></li>
+        <li><span>설교 성경구절 자동 감지 앱</span><span class="add-badge">Web Speech</span></li>
+      </ul>
+    </div>
+    <div class="add-card">
+      <h4>🎬 영상 & 콘텐츠 제작</h4>
+      <ul class="add-list">
+        <li><span>국방 AI 홍보영상 제작·납품</span><span class="add-badge">AI 나레이션</span></li>
+        <li><span>KT·한화생명 케이스스터디</span><span class="add-badge">엔터프라이즈</span></li>
+        <li><span>Munute 브랜드 콘텐츠</span><span class="add-badge">인플루언서</span></li>
+        <li><span>AI 음원 자체 제작</span><span class="add-badge">Suno AI</span></li>
+      </ul>
+    </div>
+    <div class="add-card">
+      <h4>👥 조직 빌딩 & 팀 리딩</h4>
+      <ul class="add-list">
+        <li><span>사운드플랫폼 — 다국적 팀 신설</span><span class="add-badge">중국·일본</span></li>
+        <li><span>마롱 — 전임자 이어받아 확장</span><span class="add-badge">OKR·PDCA</span></li>
+        <li><span>각 멤버 마케팅 실무 교육</span><span class="add-badge">코칭</span></li>
+        <li><span>코로나 불황 속 KPI 초과</span><span class="add-badge">리더십</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">10 / 14</span></div>
+</div>
+
+<!-- ════════ 11 SKILLS & TOOLS ════════ -->
+<div class="slide">
+  <div class="slide-title">Skills & Tools</div>
+  <div class="slide-heading">역량 & 도구 스택</div>
+  <div class="two-col">
+    <div>
+      <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:8px;">B2B 마케팅 역량</div>
+      <div class="sk-row"><span class="sk-name">B2B 마케팅 전략</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">95%</span></div>
+      <div class="sk-row"><span class="sk-name">퍼널 설계·운영</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">95%</span></div>
+      <div class="sk-row"><span class="sk-name">콘텐츠 · SEO/AEO</span><div class="sk-track"><div class="sk-fill" style="width:93%"></div></div><span class="sk-pct">93%</span></div>
+      <div class="sk-row"><span class="sk-name">리드 제너레이션</span><div class="sk-track"><div class="sk-fill" style="width:92%"></div></div><span class="sk-pct">92%</span></div>
+      <div class="sk-row"><span class="sk-name">세일즈 협업</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">90%</span></div>
+      <div class="sk-row"><span class="sk-name">조직 리딩·팀 빌딩</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">90%</span></div>
+      <div class="sk-row"><span class="sk-name">퍼포먼스 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:88%"></div></div><span class="sk-pct">88%</span></div>
+      <div class="sk-row"><span class="sk-name">데이터 분석·자동화</span><div class="sk-track"><div class="sk-fill" style="width:85%"></div></div><span class="sk-pct">85%</span></div>
+      <div class="sk-row"><span class="sk-name">글로벌 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:80%"></div></div><span class="sk-pct">80%</span></div>
+      <div class="sk-row"><span class="sk-name">CRM / MA</span><div class="sk-track"><div class="sk-fill" style="width:75%"></div></div><span class="sk-pct">75%</span></div>
+    </div>
+    <div class="tools-sec">
+      <div><div class="tg-title">퍼널 · 분석</div><div class="tg-wrap"><span class="tg">GTM</span><span class="tg">Mixpanel</span><span class="tg">GA4</span><span class="tg">Semrush</span><span class="tg">Hotjar</span><span class="tg">Datadog</span></div></div>
+      <div><div class="tg-title">광고</div><div class="tg-wrap"><span class="tg">Google Ads</span><span class="tg">네이버 광고</span><span class="tg">META Ads</span><span class="tg">YouTube</span><span class="tg">LinkedIn</span><span class="tg">Reddit</span><span class="tg">리멤버</span><span class="tg">커뮤니티 배너</span><span class="tg">연예인 광고</span></div></div>
+      <div><div class="tg-title">자동화 · 개발</div><div class="tg-wrap"><span class="tg">Zapier</span><span class="tg">Python</span><span class="tg">Webflow</span><span class="tg">Webflow CMS API</span><span class="tg">Vercel</span></div></div>
+      <div><div class="tg-title">AI 도구</div><div class="tg-wrap"><span class="tg">Claude Code</span><span class="tg">Cursor AI</span><span class="tg">Midjourney</span><span class="tg">HeyGen</span><span class="tg">Suno AI</span><span class="tg">GenSpark</span></div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">11 / 14</span></div>
+</div>
+
+<!-- ════════ 12 CAREER TIMELINE ════════ -->
+<div class="slide">
+  <div class="slide-title">Career Timeline</div>
+  <div class="slide-heading">커리어 타임라인</div>
+  <div class="tl" style="flex:1;">
+    <div class="tl-row" style="padding:6px 0;">
+      <span class="tl-period">2025.08 –<br/>현재</span>
+      <div>
+        <span class="tl-title">올거나이즈코리아</span> · <span class="tl-sub">Alli 엔터프라이즈 AI · 마케터</span><br/>
+        <span class="tl-result">전환 퍼널 전체 신규 설계 · 콘텐츠 전환율 14.3% · SEO Site Health +33% · Python 파이프라인</span>
+      </div>
+    </div>
+    <div class="tl-row" style="padding:6px 0;">
+      <span class="tl-period">2023.08 –<br/>2025.04</span>
+      <div>
+        <span class="tl-title">사운드플랫폼</span> · <span class="tl-sub">Munute AI · 마케팅 팀장</span><br/>
+        <span class="tl-result">80개국 진출 · CPA 83%↓ · 다국적 팀 직접 빌딩 · 유튜브 10만 뷰 · 10개월 5만명</span>
+      </div>
+    </div>
+    <div class="tl-row" style="padding:6px 0;">
+      <span class="tl-period">2021.03 –<br/>2023.08</span>
+      <div>
+        <span class="tl-title">마롱컴퍼니</span> · <span class="tl-sub">공공미술 B2B · 마케팅 팀장</span><br/>
+        <span class="tl-result">리드 KPI 118% 초과 · 매출 1.4배 · SEO 키워드 점유 30→70% · OKR 최초 도입 · 경쟁사 모방 유발</span>
+      </div>
+    </div>
+    <div class="tl-row" style="padding:6px 0;">
+      <span class="tl-period">2018.05 –<br/>2021.01</span>
+      <div>
+        <span class="tl-title">무버먼한국</span> · <span class="tl-sub">B2B/B2G 디지털마케팅 · 과장</span><br/>
+        <span class="tl-result">KAIST · 문예위 정부캠페인 수행 · 와디즈 3000% 달성 · B2B/B2G 레퍼런스 구축</span>
+      </div>
+    </div>
+    <div class="tl-row" style="padding:6px 0;">
+      <span class="tl-period">2016.02 –<br/>2018.03</span>
+      <div>
+        <span class="tl-title">리앤사시스템</span> · <span class="tl-sub">B2C 음향기기 · 마케팅/영업</span><br/>
+        <span class="tl-result">셀럽 마케팅 (현아·헤이즈) · 이마트 입점 · SNS +350% · 매출 +200%</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">12 / 14</span></div>
+</div>
+
+<!-- ════════ 13 WHY TECHTAKA ════════ -->
 <div class="slide">
   <div class="slide-title">Why Techtaka</div>
   <div class="slide-heading">왜 테크타카인가</div>
   <div class="why-grid">
     <div class="why-card">
-      <span class="why-num">01</span>
+      <span class="wn">01</span>
       <h3>아르고 퍼널, 바로 세팅할 수 있습니다</h3>
       <p>올거나이즈에서 MQL→세일즈 핸드오프 퍼널을 아무것도 없는 데서 만들어봤습니다. 아르고도 같은 구조라 빠르게 적용 가능합니다.</p>
     </div>
     <div class="why-card">
-      <span class="why-num">02</span>
+      <span class="wn">02</span>
       <h3>팀 없는 곳에서 시작하는 건 익숙합니다</h3>
-      <p>사운드플랫폼에서 팀을 신설하고, 마롱에서 전임자를 이어받아 팀으로 확장했습니다. 채용, OKR, 성과 체계까지 직접 만들었고요. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.</p>
+      <p>사운드플랫폼에서 팀을 신설하고, 마롱에서 전임자를 이어받아 팀으로 확장했습니다. 채용, OKR, 성과 체계까지 직접 만들었습니다. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.</p>
     </div>
     <div class="why-card">
-      <span class="why-num">03</span>
+      <span class="wn">03</span>
       <h3>맥락 없는 시장에 거부감이 없습니다</h3>
       <p>엔터프라이즈 AI, 글로벌 SaaS, 공공미술 — 매번 처음 보는 산업이었습니다. 고객 인터뷰와 데이터로 시장을 파악했고, 결과적으로 성과를 냈습니다. 물류 SaaS도 같은 접근이면 충분합니다.</p>
     </div>
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">07 / 08</span>
-  </div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">13 / 14</span></div>
 </div>
 
-<!-- ═══════════ SLIDE 8: SKILLS + CLOSING ═══════════ -->
-<div class="slide">
-  <div class="slide-title">Skills & Tools</div>
-  <div class="slide-heading">역량 & 도구 스택</div>
-  <div class="skills-layout">
-    <div class="skill-bars">
-      <div class="skill-row"><span class="skill-name">B2B 마케팅 전략</span><div class="skill-track"><div class="skill-fill" style="width:95%"></div></div><span class="skill-pct">95%</span></div>
-      <div class="skill-row"><span class="skill-name">퍼널 설계·운영</span><div class="skill-track"><div class="skill-fill" style="width:95%"></div></div><span class="skill-pct">95%</span></div>
-      <div class="skill-row"><span class="skill-name">콘텐츠 · SEO/AEO</span><div class="skill-track"><div class="skill-fill" style="width:93%"></div></div><span class="skill-pct">93%</span></div>
-      <div class="skill-row"><span class="skill-name">리드 제너레이션</span><div class="skill-track"><div class="skill-fill" style="width:92%"></div></div><span class="skill-pct">92%</span></div>
-      <div class="skill-row"><span class="skill-name">세일즈 협업</span><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
-      <div class="skill-row"><span class="skill-name">조직 리딩</span><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
-      <div class="skill-row"><span class="skill-name">퍼포먼스 마케팅</span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
-      <div class="skill-row"><span class="skill-name">데이터 분석·자동화</span><div class="skill-track"><div class="skill-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
-      <div class="skill-row"><span class="skill-name">글로벌 마케팅</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-pct">80%</span></div>
-    </div>
-    <div class="tools-section">
-      <div>
-        <div class="tools-group-title">퍼널 · 분석</div>
-        <div class="tools-wrap">
-          <span class="tool-tag">GTM</span><span class="tool-tag">Mixpanel</span><span class="tool-tag">GA4</span><span class="tool-tag">Semrush</span><span class="tool-tag">Hotjar</span><span class="tool-tag">Datadog</span>
-        </div>
-      </div>
-      <div>
-        <div class="tools-group-title">광고</div>
-        <div class="tools-wrap">
-          <span class="tool-tag">Google Ads</span><span class="tool-tag">네이버 광고</span><span class="tool-tag">META Ads</span><span class="tool-tag">YouTube</span><span class="tool-tag">LinkedIn</span><span class="tool-tag">Reddit</span><span class="tool-tag">리멤버</span><span class="tool-tag">커뮤니티 배너</span><span class="tool-tag">연예인 광고</span>
-        </div>
-      </div>
-      <div>
-        <div class="tools-group-title">자동화 · 개발</div>
-        <div class="tools-wrap">
-          <span class="tool-tag">Zapier</span><span class="tool-tag">Python</span><span class="tool-tag">Webflow</span><span class="tool-tag">Webflow CMS API</span><span class="tool-tag">Vercel</span>
-        </div>
-      </div>
-      <div>
-        <div class="tools-group-title">AI 도구</div>
-        <div class="tools-wrap">
-          <span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor AI</span><span class="tool-tag">Midjourney</span><span class="tool-tag">HeyGen</span><span class="tool-tag">Suno AI</span><span class="tool-tag">GenSpark</span>
-        </div>
-      </div>
-      <div style="margin-top:auto; text-align:center; padding:16px; background:var(--accent-light); border-radius:8px;">
-        <div style="font-size:10pt; font-weight:700; color:var(--text);">감사합니다</div>
-        <div style="font-size:8pt; color:var(--text2); margin-top:4px;">pernoa@naver.com · 010-3479-2349</div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:7.5pt; color:var(--accent); margin-top:4px;">pernoa.github.io/portfolio-2026/?c=techtaka</div>
-      </div>
-    </div>
+<!-- ════════ 14 CLOSING ════════ -->
+<div class="slide closing">
+  <h2>감사합니다</h2>
+  <div class="cs">B2B Marketing Strategist & Builder — 김지수</div>
+  <div class="ci">
+    📞 010-3479-2349<br/>
+    ✉️ pernoa@naver.com<br/>
+    💼 12+ years · B2B SaaS · B2C SaaS · B2B/B2G
   </div>
-  <div class="slide-footer">
-    <span>김지수 포트폴리오 2026</span>
-    <span class="slide-num">08 / 08</span>
-  </div>
+  <div class="cu">pernoa.github.io/portfolio-2026/?c=techtaka</div>
+  <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">14 / 14</span></div>
 </div>
 
 </body>
