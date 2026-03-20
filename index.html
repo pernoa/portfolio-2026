@@ -13,13 +13,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){var t=localStorage.getItem('portfolio-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+  </script>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════
      NAV
      ═══════════════════════════════════ -->
-<nav>
+<a href="#hero" class="skip-link">본문으로 건너뛰기</a>
+<nav aria-label="메인 네비게이션">
   <span class="nav-logo mono">kim_jisu.portfolio</span>
   <ul class="nav-links">
     <li><a href="#dashboard">Dashboard</a></li>
@@ -31,7 +35,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button id="theme-toggle" class="theme-toggle">☀ Light</button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">☀ Light</button>
   </div>
 </nav>
 
@@ -47,7 +51,7 @@
       <h1 class="hero-name">김지수<br />KIM JISU</h1>
 
       <p class="hero-title">
-        <span id="typing-text"></span><span class="cursor"></span>
+        <span id="typing-text" aria-live="polite" aria-label="직무 소개"></span><span class="cursor" aria-hidden="true"></span>
       </p>
 
       <div class="hero-meta">

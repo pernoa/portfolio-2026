@@ -1,4 +1,23 @@
 /* ==============================
+   Skip Link (Accessibility)
+   ============================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.5rem 1rem;
+  background: var(--accent-blue, #5EEAD4);
+  color: #0a0e17;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* ==============================
    CSS Variables — Dual Theme
    ============================== */
 :root {
