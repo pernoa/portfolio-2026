@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>김지수 — B2B Marketing Strategist & Builder</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --text: #1a1a2e;
+    --text2: #4a4a6a;
+    --muted: #8a8aaa;
+    --accent: #0d7377;
+    --accent2: #047857;
+    --border: #e2e8f0;
+    --bg-light: #f8fafc;
+    --bg-badge: #e6f7f5;
+  }
+
+  @page { size: A4; margin: 1.4cm 1.6cm; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--text);
+    background: #fff;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .header-left h1 {
+    font-size: 22pt;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .header-left .subtitle {
+    font-size: 10pt;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+  .header-left .target {
+    display: inline-block;
+    font-size: 8pt;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.15rem 0.6rem;
+    border-radius: 3px;
+    margin-top: 0.4rem;
+    font-weight: 500;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 8pt;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 0.9rem; }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Metrics Grid ── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .metric {
+    text-align: center;
+    padding: 0.5rem 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-light);
+  }
+  .metric-num {
+    font-size: 16pt;
+    font-weight: 900;
+    color: var(--accent);
+    display: block;
+    line-height: 1.2;
+  }
+  .metric-label {
+    font-size: 7pt;
+    color: var(--text2);
+    display: block;
+    margin-top: 0.1rem;
+  }
+  .metric-sub {
+    font-size: 6pt;
+    color: var(--muted);
+    display: block;
+  }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  th {
+    background: var(--bg-light);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1.5px solid var(--border);
+    color: var(--text2);
+    font-size: 7.5pt;
+  }
+  td {
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--bg-badge);
+    color: var(--accent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 7.5pt;
+    font-weight: 500;
+  }
+
+  /* ── Strengths ── */
+  .strengths {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .strength {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+  }
+  .strength-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .strength h4 {
+    font-size: 8.5pt;
+    font-weight: 700;
+    margin: 0.15rem 0 0.1rem;
+  }
+  .strength p {
+    font-size: 7.5pt;
+    color: var(--text2);
+    line-height: 1.4;
+  }
+
+  /* ── Projects ── */
+  .project {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    page-break-inside: avoid;
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+  }
+  .project-title {
+    font-size: 9.5pt;
+    font-weight: 700;
+  }
+  .project-company {
+    font-size: 7.5pt;
+    color: var(--text2);
+  }
+  .project-period {
+    font-size: 7pt;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+  .project-big {
+    font-size: 18pt;
+    font-weight: 900;
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+  .project-big-label {
+    font-size: 8pt;
+    color: var(--text2);
+  }
+  .project-results {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .result-chip {
+    font-size: 7pt;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  /* ── Skills ── */
+  .skills-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.15rem 0;
+    font-size: 8pt;
+    border-bottom: 1px solid #f0f0f5;
+  }
+  .skill-bar {
+    width: 60px;
+    height: 5px;
+    background: #e5e5e5;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 0.4rem;
+  }
+  .skill-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .tools-group { margin-bottom: 0.4rem; }
+  .tools-label {
+    font-size: 7pt;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+  }
+  .tool {
+    font-size: 7pt;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+  }
+
+  /* ── Timeline ── */
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 8pt;
+  }
+  .timeline-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+  }
+  .timeline-title { font-weight: 700; }
+  .timeline-company { font-size: 7.5pt; color: var(--text2); }
+  .timeline-result { font-size: 7pt; color: var(--accent); margin-top: 0.1rem; }
+
+  /* ── Why Section ── */
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+  .why-card {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    border-top: 2px solid var(--accent);
+  }
+  .why-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .why-card h4 {
+    font-size: 8pt;
+    font-weight: 700;
+    margin: 0.2rem 0;
+  }
+  .why-card p {
+    font-size: 7pt;
+    color: var(--text2);
+    line-height: 1.4;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 7pt;
+    color: var(--muted);
+  }
+
+  /* ── Print specifics ── */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-left">
+    <h1>김지수</h1>
+    <div class="subtitle">B2B Marketing Strategist & Builder</div>
+    <span class="target">for 테크타카 — B2B Marketing Lead</span>
+  </div>
+  <div class="header-right">
+    010-3479-2349<br/>
+    pernoa@naver.com<br/>
+    12+ years · B2B SaaS · B2C SaaS · B2B/B2G
+  </div>
+</div>
+
+<!-- ═══ KEY METRICS ═══ -->
+<div class="section">
+  <div class="section-title">핵심 성과 지표</div>
+  <div class="metrics">
+    <div class="metric">
+      <span class="metric-num">118%</span>
+      <span class="metric-label">B2B 리드 KPI 초과</span>
+      <span class="metric-sub">마롱컴퍼니</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">140%↑</span>
+      <span class="metric-label">매출 성장</span>
+      <span class="metric-sub">마롱컴퍼니</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">-83%</span>
+      <span class="metric-label">CPA 절감</span>
+      <span class="metric-sub">₩12K→₩2K · 사운드플랫폼</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">14.3%</span>
+      <span class="metric-label">콘텐츠 전환율</span>
+      <span class="metric-sub">업계 1% 대비 14배 · 올거나이즈</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">80개국</span>
+      <span class="metric-label">글로벌 확장</span>
+      <span class="metric-sub">10개월 5만명 · 사운드플랫폼</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">+33%</span>
+      <span class="metric-label">Site Health</span>
+      <span class="metric-sub">67→89점 · 올거나이즈</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">0→1</span>
+      <span class="metric-label">전환 퍼널 구축</span>
+      <span class="metric-sub">GTM·Mixpanel · 올거나이즈</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">0→1</span>
+      <span class="metric-label">마케팅 팀 빌딩</span>
+      <span class="metric-sub">OKR·PDCA · 2회</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ JD MAPPING ═══ -->
+<div class="section">
+  <div class="section-title">테크타카 JD ↔ 내 경험 매핑</div>
+  <table>
+    <thead><tr><th>JD 핵심 요건</th><th>해당 프로젝트</th><th>핵심 성과</th></tr></thead>
+    <tbody>
+      <tr><td><strong>전략 & 퍼널 관리</strong></td><td><span class="badge">올거나이즈</span></td><td>GTM·Mixpanel 전환 퍼널 0→1 설계</td></tr>
+      <tr><td><strong>리드 제너레이션</strong></td><td><span class="badge">마롱컴퍼니</span></td><td>문의 KPI 118%↑, 매출 140%↑</td></tr>
+      <tr><td><strong>브랜드 & 메시징</strong></td><td><span class="badge">사운드플랫폼</span></td><td>유튜브 10만+, 3개월 7만 활성유저</td></tr>
+      <tr><td><strong>데이터 & 실행</strong></td><td><span class="badge">올거나이즈</span></td><td>Site Health +33%, Python 자동화</td></tr>
+      <tr><td><strong>조직 리딩</strong></td><td><span class="badge">사운드플랫폼 · 마롱</span></td><td>0→1 팀 구성, OKR·PDCA 도입 ×2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div class="section">
+  <div class="section-title">B2B 마케팅 리더로서의 정체성</div>
+  <div class="strengths">
+    <div class="strength">
+      <span class="strength-num">01</span>
+      <h4>B2B 퍼널 설계자</h4>
+      <p>광고 유입→홈페이지→문의→세일즈 연계까지 End-to-End. 트래킹 인프라부터 리드 자동화까지 혼자 0에서 구축.</p>
+    </div>
+    <div class="strength">
+      <span class="strength-num">02</span>
+      <h4>데이터 기반 실행자</h4>
+      <p>가설→A/B 테스트→수치 검증. 분석 시스템을 직접 Python으로 구축. Semrush API, Mixpanel API 파이프라인 운영 중.</p>
+    </div>
+    <div class="strength">
+      <span class="strength-num">03</span>
+      <h4>0→1 조직 빌더</h4>
+      <p>두 차례 마케팅 팀을 처음부터 구성·리드. OKR·PDCA 최초 도입, 팀 협업 문화 설계.</p>
+    </div>
+    <div class="strength">
+      <span class="strength-num">04</span>
+      <h4>시스템 빌더</h4>
+      <p>SEO 자동 리포팅, Mixpanel 퍼널 분석, 인바운드 문의 자동 알림 — 감이 아닌 시스템으로 마케팅.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROJECTS ═══ -->
+<div class="section">
+  <div class="section-title">프로젝트 상세</div>
+
+  <div class="project">
+    <div class="project-head">
+      <div>
+        <div class="project-title">01. B2B SaaS 마케팅 인프라·퍼널 구축</div>
+        <div class="project-company">올거나이즈코리아 — Alli 엔터프라이즈 AI</div>
+      </div>
+      <span class="project-period">2025.08 – 현재</span>
+    </div>
+    <span class="project-big">0→1</span>
+    <span class="project-big-label">마케팅 트래킹 인프라 & 전환 퍼널 완전 신규 구축</span>
+    <div class="project-results">
+      <span class="result-chip">광고→문의→세일즈 퍼널 0→1</span>
+      <span class="result-chip">GTM + Mixpanel 퍼널 가시화</span>
+      <span class="result-chip">Zapier 세일즈 자동 연계</span>
+      <span class="result-chip">한/영/일 3개 언어 통합 운영</span>
+      <span class="result-chip">100% 단독 설계</span>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <div>
+        <div class="project-title">02. B2B 콘텐츠 마케팅 & SEO 자동화</div>
+        <div class="project-company">올거나이즈코리아 — 에이전틱 AI 블로그</div>
+      </div>
+      <span class="project-period">2025.12 – 현재</span>
+    </div>
+    <span class="project-big">14.3%</span>
+    <span class="project-big-label">AEO+SEO 콘텐츠 전환율 — 업계 평균 1% 대비 14배</span>
+    <div class="project-results">
+      <span class="result-chip">Site Health 67→89점 (+33%)</span>
+      <span class="result-chip">SEO 리포팅 수동→풀 자동</span>
+      <span class="result-chip">블로그 시스템 0→1</span>
+      <span class="result-chip">Python 파이프라인 (Semrush API)</span>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <div>
+        <div class="project-title">03. B2B 리드 제너레이션 극대화</div>
+        <div class="project-company">마롱컴퍼니 — 공공미술·건축미술심의 B2B</div>
+      </div>
+      <span class="project-period">2021.08 – 2023.08</span>
+    </div>
+    <span class="project-big">118%</span>
+    <span class="project-big-label">B2B 리드(문의) KPI 초과 달성 — 경쟁사 모방 증가 속에서</span>
+    <div class="project-results">
+      <span class="result-chip">매출 140%↑</span>
+      <span class="result-chip">광고비 -33% 절감</span>
+      <span class="result-chip">키워드 점유 30→70%</span>
+      <span class="result-chip">채널별 랜딩·A/B 테스트·영업팀 VOC</span>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <div>
+        <div class="project-title">04. 글로벌 GTM & 퍼포먼스 최적화</div>
+        <div class="project-company">사운드플랫폼 — Munute AI 마스터링</div>
+      </div>
+      <span class="project-period">2023.08 – 2025.03</span>
+    </div>
+    <span class="project-big">-83%</span>
+    <span class="project-big-label">CPA ₩12,000→₩2,000 (업계 평균의 1/6~1/13)</span>
+    <div class="project-results">
+      <span class="result-chip">80개국 5만명 · 10개월</span>
+      <span class="result-chip">구독 CPA -42%</span>
+      <span class="result-chip">1억 광고비 -30%</span>
+      <span class="result-chip">다국적 팀 0→1 빌딩</span>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <div>
+        <div class="project-title">05. 브랜드 포지셔닝 & 런칭</div>
+        <div class="project-company">사운드플랫폼 · 리앤사시스템</div>
+      </div>
+      <span class="project-period">2016 – 2025</span>
+    </div>
+    <span class="project-big">2회</span>
+    <span class="project-big-label">신규 브랜드 포지셔닝·런칭 주도 — 인지도 0에서 안착까지</span>
+    <div class="project-results">
+      <span class="result-chip">유튜브 10만+ 조회</span>
+      <span class="result-chip">3개월 7만+ 활성유저</span>
+      <span class="result-chip">SNS +350% · 매출 +200%</span>
+      <span class="result-chip">셀럽 자발 구매 → 바이럴</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SKILLS ═══ -->
+<div class="section">
+  <div class="section-title">역량 & 도구 스택</div>
+  <div class="skills-cols">
+    <div>
+      <div class="skill-row"><span>B2B 마케팅 전략</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div><span>95%</span></div>
+      <div class="skill-row"><span>리드 제너레이션</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="skill-row"><span>퍼널 설계·운영</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="skill-row"><span>세일즈 협업</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div><span>90%</span></div>
+      <div class="skill-row"><span>퍼포먼스 마케팅</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="skill-row"><span>콘텐츠 전략 · SEO/AEO</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="skill-row"><span>데이터 분석·자동화</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div><span>100%</span></div>
+      <div class="skill-row"><span>조직 리딩·팀 빌딩</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div><span>90%</span></div>
+      <div class="skill-row"><span>글로벌 마케팅</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div><span>80%</span></div>
+    </div>
+    <div>
+      <div class="tools-group">
+        <div class="tools-label">퍼널·분석</div>
+        <div class="tools-list"><span class="tool">GTM</span><span class="tool">Mixpanel</span><span class="tool">GA4</span><span class="tool">Semrush</span><span class="tool">Hotjar</span><span class="tool">Datadog</span></div>
+      </div>
+      <div class="tools-group">
+        <div class="tools-label">광고</div>
+        <div class="tools-list"><span class="tool">Google Ads</span><span class="tool">네이버 광고</span><span class="tool">META Ads</span><span class="tool">YouTube</span><span class="tool">LinkedIn</span><span class="tool">Reddit</span></div>
+      </div>
+      <div class="tools-group">
+        <div class="tools-label">자동화·개발</div>
+        <div class="tools-list"><span class="tool">Zapier</span><span class="tool">Python</span><span class="tool">Claude Code</span><span class="tool">Webflow</span><span class="tool">Webflow CMS API</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CAREER TIMELINE ═══ -->
+<div class="section">
+  <div class="section-title">커리어 타임라인</div>
+  <div class="timeline-row">
+    <span class="timeline-period">2025.08 –<br/>현재</span>
+    <div><span class="timeline-title">올거나이즈코리아</span> <span class="timeline-company">Alli 엔터프라이즈 AI · 마케터</span><div class="timeline-result">퍼널 0→1 · 콘텐츠 전환율 14.3% · SEO +33% · Python 자동화</div></div>
+  </div>
+  <div class="timeline-row">
+    <span class="timeline-period">2023.08 –<br/>2025.04</span>
+    <div><span class="timeline-title">사운드플랫폼</span> <span class="timeline-company">Munute AI · 마케팅 팀장</span><div class="timeline-result">80개국 5만명 · CPA -83% · 팀 0→1 · 브랜드 런칭</div></div>
+  </div>
+  <div class="timeline-row">
+    <span class="timeline-period">2021.03 –<br/>2023.08</span>
+    <div><span class="timeline-title">마롱컴퍼니</span> <span class="timeline-company">공공미술 B2B · 마케팅 팀장</span><div class="timeline-result">리드 KPI 118% · 매출 140% · OKR·PDCA 도입</div></div>
+  </div>
+  <div class="timeline-row">
+    <span class="timeline-period">2018.05 –<br/>2021.01</span>
+    <div><span class="timeline-title">무버먼한국</span> <span class="timeline-company">B2B/B2G 디지털마케팅 · 과장</span><div class="timeline-result">KAIST·문예위 정부캠페인 · 와디즈 3000%</div></div>
+  </div>
+  <div class="timeline-row">
+    <span class="timeline-period">2016.02 –<br/>2018.03</span>
+    <div><span class="timeline-title">리앤사시스템</span> <span class="timeline-company">B2C 음향기기 · 마케팅/영업</span><div class="timeline-result">셀럽 마케팅 · 이마트 입점 · SNS +350% · 매출 +200%</div></div>
+  </div>
+</div>
+
+<!-- ═══ WHY TECHTAKA ═══ -->
+<div class="section">
+  <div class="section-title">왜 테크타카인가</div>
+  <div class="why-cards">
+    <div class="why-card">
+      <span class="num">01</span>
+      <h4>B2B SaaS 퍼널 → 아르고 MQL→계약에 즉시 적용</h4>
+      <p>올거나이즈에서 GTM·Mixpanel 기반 전환 퍼널을 0에서 설계·구축. 아르고의 MQL→SQL→기회→계약 퍼널에 바로 기여 가능.</p>
+    </div>
+    <div class="why-card">
+      <span class="num">02</span>
+      <h4>0→1 마케팅 조직 빌딩 → 신설 조직에 최적</h4>
+      <p>두 차례 팀 처음부터 구성·리드. OKR·PDCA 도입, 팀 성과관리 체계를 0에서 만든 경험.</p>
+    </div>
+    <div class="why-card">
+      <span class="num">03</span>
+      <h4>복잡한 도메인 빠른 적응 → 물류 SaaS도 같은 방식</h4>
+      <p>AI·글로벌 SaaS·공공미술 등 새 도메인에 빠르게 적응. 데이터 기반 접근이 도메인을 타지 않음.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  김지수 포트폴리오 | 상세 웹 포트폴리오: pernoa.github.io/portfolio-2026/?c=techtaka | 2026.03
+</div>
+
+</body>
+</html>
