@@ -1323,58 +1323,93 @@ section {
    Print — 공통 (웹용 + 출력용)
    ============================== */
 @media print {
-  nav, .skip-link { display: none !important; }
-  #hero { min-height: auto; padding: 2rem 0 1rem; }
-  #hero::before { display: none; }
+  /* 불필요 UI 숨김 */
+  nav, .skip-link, .cursor, .btn, .hero-cta,
+  .theme-toggle, .contact-actions { display: none !important; }
 
-  .cursor { display: none; }
-  .btn, .hero-cta, .theme-toggle, .contact-actions { display: none !important; }
+  /* 스캔라인 제거 (웹/출력 모두) */
+  #hero::before, #hero::after { display: none !important; content: none !important; }
 
-  * { animation: none !important; transition: none !important; }
-  .scroll-reveal { opacity: 1 !important; transform: none !important; }
-  .git-entry { opacity: 1 !important; transform: none !important; }
-  .skill-bar-fill { transition: none !important; }
+  /* Hero 컴팩트화 */
+  #hero { min-height: auto !important; padding: 1rem 0 0.5rem !important; }
+  .hero-name { font-size: 2.5rem !important; margin-bottom: 0.3rem !important; }
+  .hero-badge { font-size: 0.4rem !important; padding: 0.2rem 0.6rem !important; margin-bottom: 0.5rem !important; }
+  .hero-target { font-size: 0.75rem !important; padding: 0.2rem 0.8rem !important; margin-bottom: 0.5rem !important; }
+  .hero-title { font-size: 0.9rem !important; margin-bottom: 0.3rem !important; }
+  .hero-meta { font-size: 0.75rem !important; gap: 0.5rem !important; margin-bottom: 0.5rem !important; }
+  .hero-stats { gap: 0.3rem !important; margin-top: 0.5rem !important; }
+  .hero-stat { padding: 0.4rem !important; }
+  .hero-stat-num { font-size: 1.2rem !important; }
 
-  .project-card { break-inside: avoid; box-shadow: none; transform: none; }
-  .project-card:hover { transform: none; box-shadow: none; }
-
-  body { font-size: 10pt; line-height: 1.6; }
-  .container { max-width: 100%; padding: 0; }
-
-  /* 제출 품질 — 섹션 구분 */
-  section {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid #ddd;
-  }
-  section:last-of-type { border-bottom: none; }
-
-  /* Page break 제어 */
-  @page { margin: 1.5cm; size: A4; }
-  h1, h2, h3 { page-break-after: avoid; }
-  section { page-break-inside: avoid; }
-  .project-card { page-break-inside: avoid; }
-  .git-entry { page-break-inside: avoid; }
-
-  /* 프로젝트 그리드 → 인쇄용 1열 */
-  .projects-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
-
-  /* Hero 타겟 배지 인쇄 표시 */
-  .hero-target { border-color: #0D7377 !important; color: #0D7377 !important; }
-
-  /* Hero 이름 인쇄 시 단색 */
+  /* Hero 이름 단색 */
   .hero-name {
     background: none !important;
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: var(--text-primary) !important;
   }
 
-  /* Hero stats 인쇄 정리 */
-  .hero-stats { gap: 0.5rem !important; }
+  /* 애니메이션 제거 */
+  * { animation: none !important; transition: none !important; }
+  .scroll-reveal { opacity: 1 !important; transform: none !important; }
+  .git-entry { opacity: 1 !important; transform: none !important; }
+
+  /* 기본 타이포 */
+  body { font-size: 9pt !important; line-height: 1.5 !important; }
+  .container { max-width: 100% !important; padding: 0 !important; }
+
+  /* 섹션 컴팩트 — page-break-inside 제거 (빈 페이지 방지) */
+  section {
+    padding: 0.6rem 0 !important;
+    border-bottom: 1px solid #ccc;
+  }
+  section:last-of-type { border-bottom: none; }
+
+  /* 섹션 타이틀 컴팩트 */
+  .section-label { font-size: 0.55rem !important; margin-bottom: 0.2rem !important; }
+  .section-title { font-size: 1.3rem !important; margin-bottom: 0.5rem !important; }
+
+  /* Page break — 카드/항목 단위만 (섹션 단위 금지) */
+  @page { margin: 1.2cm; size: A4; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .project-card { break-inside: avoid; box-shadow: none !important; transform: none !important; }
+  .project-card:hover { transform: none; box-shadow: none; }
+  .git-entry { break-inside: avoid; }
+
+  /* Dashboard 그리드 컴팩트 */
+  .metrics-grid { gap: 0.5rem !important; }
+  .metric-card { padding: 0.8rem !important; }
+  .metric-big-num { font-size: 1.5rem !important; }
+
+  /* About 코드 블록 오버플로 방지 */
+  .about-code pre, .code-window pre, pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    font-size: 8pt !important;
+    overflow: hidden !important;
+  }
+  .about-layout { gap: 1rem !important; }
+  .about-cards { gap: 0.5rem !important; }
+
+  /* Skills 컴팩트 */
+  .skills-layout { gap: 1rem !important; }
+  .skill-bar-item { padding: 0.2rem 0 !important; }
+  .tool-tags { gap: 0.3rem !important; }
+  .tool-tag { padding: 0.2rem 0.5rem !important; font-size: 0.7rem !important; }
+
+  /* Projects 1열 + 컴팩트 */
+  .projects-grid { grid-template-columns: 1fr !important; gap: 0.8rem !important; }
+  .project-card-inner { padding: 1rem !important; }
+
+  /* Career/Timeline 컴팩트 */
+  .git-entry { padding: 0.5rem 0.8rem !important; }
+
+  /* Why 섹션 */
+  .why-grid { gap: 0.5rem !important; }
+  .why-card { padding: 0.8rem !important; }
 }
 
 /* ==============================
    Print — 출력용 클린 모드 (잉크 절약 화이트)
-   data-print-mode="clean" 일 때 적용
    ============================== */
 [data-print-mode="clean"] {
   --bg-primary: #FFFFFF !important;
@@ -1401,13 +1436,14 @@ section {
 }
 
 @media print {
-  /* 출력용 클린: 배경색 완전 제거 */
-  [data-print-mode="clean"] body {
+  [data-print-mode="clean"] body,
+  [data-print-mode="clean"] section,
+  [data-print-mode="clean"] .hero-stat,
+  [data-print-mode="clean"] .metric-card,
+  [data-print-mode="clean"] .about-code,
+  [data-print-mode="clean"] .code-window {
     background: #FFFFFF !important;
     color: #1A1A1A !important;
-  }
-  [data-print-mode="clean"] section {
-    background: none !important;
   }
   [data-print-mode="clean"] .hero-badge,
   [data-print-mode="clean"] .hero-target {
@@ -1424,8 +1460,20 @@ section {
     background: #333 !important;
   }
   [data-print-mode="clean"] .hero-name {
-    background: none !important;
     -webkit-text-fill-color: #1A1A1A !important;
   }
-  [data-print-mode="clean"] .scanline { display: none !important; }
+  [data-print-mode="clean"] .hero-stat {
+    border-color: #ddd !important;
+  }
+  [data-print-mode="clean"] .jd-badge {
+    background: #e5e5e5 !important;
+    color: #1A1A1A !important;
+  }
+  [data-print-mode="clean"] .git-entry {
+    background: #FFFFFF !important;
+  }
+  [data-print-mode="clean"] .why-card {
+    background: #FFFFFF !important;
+    border: 1px solid #ddd !important;
+  }
 }
