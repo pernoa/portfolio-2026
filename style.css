@@ -1250,6 +1250,153 @@ section {
 }
 
 /* ==============================
+   Chart Components — Visual Enhancement v2
+   ============================== */
+
+/* Horizontal Bar Chart */
+.bar-chart-h {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.bar-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 60px;
+}
+
+.bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bar-fill.animated {
+  /* width set by JS via data-width attribute */
+}
+
+.bar-value {
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-secondary);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Comparison Bar Container */
+.comparison-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* SVG Funnel */
+.svg-funnel {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+/* Progress Ring */
+.progress-ring {
+  flex-shrink: 0;
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Gauge Chart (half-circle) */
+.gauge-chart {
+  position: relative;
+  width: 120px;
+  height: 65px;
+  overflow: hidden;
+}
+
+.gauge-chart svg {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.gauge-label {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-yellow);
+}
+
+/* Screenshot Frame */
+.screenshot-frame {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.screenshot-frame .frame-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--code-bg);
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 0.3rem;
+}
+
+.screenshot-frame .frame-header .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.screenshot-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 4px 4px;
+  display: block;
+}
+
+.screenshot-placeholder {
+  width: 100%;
+  height: 160px;
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ==============================
    Scroll Animation
    ============================== */
 .scroll-reveal {
@@ -1308,6 +1455,8 @@ section {
 
   .delta-card { grid-template-columns: 1fr auto 1fr; }
   .delta-pct { display: none; }
+  .svg-funnel { max-width: 100%; }
+  .comparison-bar-container { flex-wrap: wrap; }
 }
 
 @media (max-width: 480px) {
@@ -1406,6 +1555,12 @@ section {
   /* Why 섹션 */
   .why-grid { gap: 0.5rem !important; }
   .why-card { padding: 0.8rem !important; }
+
+  /* Chart components — 정적 표시 */
+  .bar-fill { transition: none !important; }
+  .progress-ring-circle { transition: none !important; stroke-dashoffset: 0 !important; }
+  .svg-funnel { max-width: 100% !important; }
+  .bar-fill-anim { width: var(--print-width) !important; }
 }
 
 /* ==============================

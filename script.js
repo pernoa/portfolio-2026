@@ -19,7 +19,7 @@ const COMPANIES = {
       {
         num: '02',
         title: '팀 없는 곳에서 시작하는 건 익숙합니다',
-        desc: '"마케팅 팀이 없는 회사"에 두 번 들어가봤습니다. 채용, OKR 세팅, 성과 체계까지 직접 만들었고요. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.'
+        desc: '사운드플랫폼에서 팀을 신설하고, 마롱컴퍼니에서 전임자를 이어받아 팀으로 확장했습니다. 채용, OKR 세팅, 성과 체계까지 직접 만들었고요. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.'
       },
       {
         num: '03',
@@ -32,7 +32,7 @@ const COMPANIES = {
       { req: '리드 제너레이션',     project: '마롱컴퍼니',           result: '리드 KPI 118% 초과, 경쟁사가 랜딩 구조 모방. 매출 1.4배' },
       { req: '브랜드 & 메시징',     project: '사운드플랫폼',         result: '유튜브 데모 10만 뷰, 런칭 3개월 만에 7만 유저' },
       { req: '데이터 & 실행',       project: '올거나이즈',           result: 'SEO 점수 22점↑, 리포팅은 Python으로 자동화' },
-      { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '두 곳 다 마케팅 팀이 없어서, 직접 만들고 이끌었음' },
+      { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '사운드플랫폼 팀 신설 + 마롱 전임자 이어받아 팀 확장·리드' },
     ]
   }
 };
@@ -263,6 +263,51 @@ document.querySelectorAll('.skill-bar-item').forEach((el) => {
   barObserver.observe(el);
 });
 
+// ── Bar Chart Animation (horizontal bars) ────────────────────
+const barChartObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const fills = entry.target.querySelectorAll('.bar-fill-anim');
+        fills.forEach((fill, i) => {
+          const w = fill.dataset.width;
+          if (w) {
+            setTimeout(() => { fill.style.width = w + '%'; }, 100 + i * 150);
+          }
+        });
+        barChartObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll('.bar-chart-h, .comparison-bar-container, [style*="display:flex"][style*="gap:2rem"]').forEach((el) => {
+  barChartObserver.observe(el);
+});
+
+// ── SVG Progress Ring Animation ──────────────────────────────
+const ringObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const circle = entry.target.querySelector('.progress-ring-circle');
+        if (circle) {
+          const pct = parseFloat(circle.dataset.targetPct) || 100;
+          const circumference = 2 * Math.PI * 42; // r=42
+          const offset = circumference * (1 - Math.min(pct, 100) / 100);
+          setTimeout(() => { circle.style.strokeDashoffset = offset; }, 200);
+        }
+        ringObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll('.progress-ring').forEach((el) => {
+  ringObserver.observe(el);
+});
 
 // ── 3D Card Tilt ──────────────────────────────────────────────
 if (!prefersReducedMotion) {

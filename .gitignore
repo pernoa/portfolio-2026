@@ -1,0 +1,14 @@
+.DS_Store
+*.md
+!README.md
+*-v1.*
+samples/
+ai-responses/
+debug.html
+test-js.html
+deploy.sh
+chatgpt_*.md
+gemini-*.md
+피드백_프롬프트.md
+GitHub_Pages_배포가이드.md
+PPT_킥_스펙.md
