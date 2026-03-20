@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# 검색 엔진 인덱싱 차단 — URL을 아는 사람만 접근 가능
