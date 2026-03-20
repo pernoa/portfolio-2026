@@ -90,6 +90,13 @@ function initCompany() {
   // Contact 라인
   const contactLine = document.getElementById('contact-line');
   if (contactLine) contactLine.textContent = co.contactLine;
+
+  // Hero 타겟 배지 — "for 테크타카"
+  const heroTarget = document.getElementById('hero-target');
+  if (heroTarget) {
+    heroTarget.textContent = 'for ' + co.name;
+    heroTarget.style.display = '';
+  }
 }
 
 initCompany();
@@ -301,8 +308,28 @@ const navObserver = new IntersectionObserver(
 sections.forEach((s) => navObserver.observe(s));
 
 
-// ── Print Button ──────────────────────────────────────────────
-const printBtn = document.getElementById('print-btn');
-if (printBtn) {
-  printBtn.addEventListener('click', () => window.print());
+// ── Print Buttons (웹용 / 출력용) ────────────────────────────
+function printWeb() {
+  window.print();
 }
+
+function printClean() {
+  root.setAttribute('data-print-mode', 'clean');
+  root.setAttribute('data-theme', 'light');
+  setTimeout(() => {
+    window.print();
+    root.removeAttribute('data-print-mode');
+    const t = localStorage.getItem('portfolio-theme') || 'dark';
+    setTheme(t);
+  }, 100);
+}
+
+// Hero buttons
+const printWebBtn = document.getElementById('print-web');
+const printCleanBtn = document.getElementById('print-clean');
+if (printWebBtn) printWebBtn.addEventListener('click', printWeb);
+if (printCleanBtn) printCleanBtn.addEventListener('click', printClean);
+
+// Contact section buttons
+document.querySelectorAll('.print-web-btn').forEach(b => b.addEventListener('click', printWeb));
+document.querySelectorAll('.print-clean-btn').forEach(b => b.addEventListener('click', printClean));

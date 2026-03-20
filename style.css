@@ -254,6 +254,20 @@ section {
   letter-spacing: 0.15em;
 }
 
+.hero-target {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
 .hero-name {
   font-size: clamp(2.8rem, 6vw, 5rem);
   font-weight: 900;
@@ -1305,36 +1319,16 @@ section {
 /* ==============================
    Print Styles (Light Mode Auto)
    ============================== */
+/* ==============================
+   Print — 공통 (웹용 + 출력용)
+   ============================== */
 @media print {
-  :root {
-    --bg-primary: #FFFFFF !important;
-    --bg-secondary: #F5F5F5 !important;
-    --bg-card: #FFFFFF !important;
-    --bg-card-hover: #FFFFFF !important;
-    --text-primary: #1A1A2E !important;
-    --text-secondary: #4A4A6A !important;
-    --text-muted: #8A8AAA !important;
-    --accent-blue: #0D7377 !important;
-    --accent-green: #047857 !important;
-    --accent-red: #9D174D !important;
-    --accent-yellow: #92400E !important;
-    --accent-purple: #5B21B6 !important;
-    --accent-teal: #0D7377 !important;
-    --border: #DDDDEE !important;
-    --border-subtle: #EEEEF5 !important;
-    --code-bg: #F0F0F5 !important;
-    --shadow: none !important;
-    --gradient-hero: none !important;
-  }
-
-  nav { display: none !important; }
+  nav, .skip-link { display: none !important; }
   #hero { min-height: auto; padding: 2rem 0 1rem; }
   #hero::before { display: none; }
 
   .cursor { display: none; }
-  .btn { display: none; }
-  .hero-cta { display: none; }
-  .theme-toggle { display: none; }
+  .btn, .hero-cta, .theme-toggle, .contact-actions { display: none !important; }
 
   * { animation: none !important; transition: none !important; }
   .scroll-reveal { opacity: 1 !important; transform: none !important; }
@@ -1344,14 +1338,94 @@ section {
   .project-card { break-inside: avoid; box-shadow: none; transform: none; }
   .project-card:hover { transform: none; box-shadow: none; }
 
-  body { font-size: 10pt; line-height: 1.5; }
-  .container { max-width: 100%; }
-  section { padding: 1.5rem 0; }
+  body { font-size: 10pt; line-height: 1.6; }
+  .container { max-width: 100%; padding: 0; }
 
-  @page {
-    margin: 1.5cm;
-    size: A4;
+  /* 제출 품질 — 섹션 구분 */
+  section {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  section:last-of-type { border-bottom: none; }
+
+  /* Page break 제어 */
+  @page { margin: 1.5cm; size: A4; }
+  h1, h2, h3 { page-break-after: avoid; }
+  section { page-break-inside: avoid; }
+  .project-card { page-break-inside: avoid; }
+  .git-entry { page-break-inside: avoid; }
+
+  /* 프로젝트 그리드 → 인쇄용 1열 */
+  .projects-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+
+  /* Hero 타겟 배지 인쇄 표시 */
+  .hero-target { border-color: #0D7377 !important; color: #0D7377 !important; }
+
+  /* Hero 이름 인쇄 시 단색 */
+  .hero-name {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
   }
 
-  h1, h2, h3 { page-break-after: avoid; }
+  /* Hero stats 인쇄 정리 */
+  .hero-stats { gap: 0.5rem !important; }
+}
+
+/* ==============================
+   Print — 출력용 클린 모드 (잉크 절약 화이트)
+   data-print-mode="clean" 일 때 적용
+   ============================== */
+[data-print-mode="clean"] {
+  --bg-primary: #FFFFFF !important;
+  --bg-secondary: #FAFAFA !important;
+  --bg-card: #FFFFFF !important;
+  --bg-card-hover: #FFFFFF !important;
+  --text-primary: #1A1A1A !important;
+  --text-secondary: #444444 !important;
+  --text-muted: #777777 !important;
+  --accent-blue: #0D7377 !important;
+  --accent-green: #047857 !important;
+  --accent-red: #9D174D !important;
+  --accent-yellow: #92400E !important;
+  --accent-purple: #5B21B6 !important;
+  --accent-teal: #0D7377 !important;
+  --border: #CCCCCC !important;
+  --border-subtle: #E5E5E5 !important;
+  --code-bg: #F5F5F5 !important;
+  --shadow: none !important;
+  --nav-bg: #FFFFFF !important;
+  --gradient-hero: none !important;
+  --glow-primary: none !important;
+  --glow-green: none !important;
+}
+
+@media print {
+  /* 출력용 클린: 배경색 완전 제거 */
+  [data-print-mode="clean"] body {
+    background: #FFFFFF !important;
+    color: #1A1A1A !important;
+  }
+  [data-print-mode="clean"] section {
+    background: none !important;
+  }
+  [data-print-mode="clean"] .hero-badge,
+  [data-print-mode="clean"] .hero-target {
+    background: none !important;
+    border-color: #999 !important;
+  }
+  [data-print-mode="clean"] .project-card,
+  [data-print-mode="clean"] .project-card-inner {
+    background: #FFFFFF !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+  [data-print-mode="clean"] .skill-bar-fill {
+    background: #333 !important;
+  }
+  [data-print-mode="clean"] .hero-name {
+    background: none !important;
+    -webkit-text-fill-color: #1A1A1A !important;
+  }
+  [data-print-mode="clean"] .scanline { display: none !important; }
 }
