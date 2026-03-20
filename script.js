@@ -308,28 +308,8 @@ const navObserver = new IntersectionObserver(
 sections.forEach((s) => navObserver.observe(s));
 
 
-// ── Print Buttons (웹용 / 출력용) ────────────────────────────
-function printWeb() {
-  window.print();
+// ── Print Button ──────────────────────────────────────────────
+const printBtn = document.getElementById('print-btn');
+if (printBtn) {
+  printBtn.addEventListener('click', () => window.print());
 }
-
-function printClean() {
-  root.setAttribute('data-print-mode', 'clean');
-  root.setAttribute('data-theme', 'light');
-  setTimeout(() => {
-    window.print();
-    root.removeAttribute('data-print-mode');
-    const t = localStorage.getItem('portfolio-theme') || 'dark';
-    setTheme(t);
-  }, 100);
-}
-
-// Hero buttons
-const printWebBtn = document.getElementById('print-web');
-const printCleanBtn = document.getElementById('print-clean');
-if (printWebBtn) printWebBtn.addEventListener('click', printWeb);
-if (printCleanBtn) printCleanBtn.addEventListener('click', printClean);
-
-// Contact section buttons
-document.querySelectorAll('.print-web-btn').forEach(b => b.addEventListener('click', printWeb));
-document.querySelectorAll('.print-clean-btn').forEach(b => b.addEventListener('click', printClean));
