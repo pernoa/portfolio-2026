@@ -13,25 +13,25 @@ const COMPANIES = {
     whyCards: [
       {
         num: '01',
-        title: '아르고 퍼널, 바로 세팅할 수 있습니다',
-        desc: '올거나이즈에서 MQL→세일즈 핸드오프 퍼널을 아무것도 없는 데서 만들어봤습니다. 아르고도 같은 구조라 빠르게 적용 가능합니다.'
+        title: '아르고의 세일즈 사이클에 맞는 퍼널을 세팅할 수 있습니다',
+        desc: '물류 SaaS는 도입 검토만 3~6개월, 의사결정자가 물류팀장·IT·경영진으로 나뉩니다. 올거나이즈에서 엔터프라이즈 AI 솔루션의 MQL→세일즈 핸드오프 퍼널을 0에서 구축·운영하고 있고, 리드 스코어링과 장기 너처링 설계가 현재 제 주 업무입니다. 아르고 5PL 제품 구조(CMS→OMS→WMS→TMS→SCM)에 맞춰 도입 단계별 콘텐츠와 터치포인트를 설계하는 건 바로 시작할 수 있습니다.'
       },
       {
         num: '02',
-        title: '팀 없는 곳에서 시작하는 건 익숙합니다',
-        desc: '사운드플랫폼에서 팀을 신설하고, 마롱컴퍼니에서 전임자를 이어받아 팀으로 확장했습니다. 채용, OKR 세팅, 성과 체계까지 직접 만들었고요. 테크타카 신설 조직도 비슷한 상황이라 어떻게 시작해야 하는지 알고 있습니다.'
+        title: '시리즈B 66명 조직에서 마케팅 KPI를 처음 세우는 단계 — 두 번 해봤습니다',
+        desc: '사운드플랫폼(20명)에서 마케팅팀 자체를 신설했고, 마롱컴퍼니에서 전임자 1명을 이어받아 팀으로 확장했습니다. 두 곳 모두 처음 3개월은 혼자 KPI 정의·트래킹 세팅·초기 성과 확보에 집중했고, 그 데이터로 채용 근거를 만들어서 팀을 꾸렸습니다. 테크타카의 \'마케팅 조직 신설\' 단계에서 이 순서가 그대로 적용됩니다.'
       },
       {
         num: '03',
-        title: '맥락 없는 시장에 들어가는 데 거부감이 없습니다',
-        desc: '엔터프라이즈 AI, 글로벌 SaaS, 공공미술 — 매번 처음 보는 산업이었습니다. 그때마다 고객 인터뷰와 데이터로 시장을 파악했고, 결과적으로 성과를 냈습니다. 물류 SaaS도 같은 접근이면 충분하다고 생각합니다.'
+        title: 'SaaS 지표 체계는 알고, 물류 도메인은 고객부터 배울 겁니다',
+        desc: 'MRR·Churn·NRR 같은 SaaS 핵심 지표, 엔터프라이즈 세일즈 인에이블먼트, 다국어 GTM 확장은 현직에서 매일 다루고 있습니다. 물류 도메인은 처음이지만, 올거나이즈 합류 때도 엔터프라이즈 AI를 몰랐고, 사운드플랫폼 때도 음악 SaaS 시장을 몰랐습니다. 매번 고객 인터뷰 10건부터 시작해서 ICP를 잡았고, 아르고의 이커머스 셀러·3PL 고객도 같은 방식으로 파악할 겁니다.'
       }
     ],
     jdRows: [
       { req: '전략 & 퍼널 관리',   project: '올거나이즈',           result: 'GTM·Mixpanel로 전환 퍼널 전체 직접 설계·운영' },
       { req: '리드 제너레이션',     project: '마롱컴퍼니',           result: '리드 KPI 118% 초과, 경쟁사가 랜딩 구조 모방. 매출 1.4배' },
       { req: '브랜드 & 메시징',     project: '사운드플랫폼',         result: '유튜브 데모 10만 뷰, 런칭 3개월 만에 7만 유저' },
-      { req: '데이터 & 실행',       project: '올거나이즈',           result: 'SEO 점수 22점↑, 리포팅은 Python으로 자동화' },
+      { req: '데이터 & 실행',       project: '올거나이즈',           result: 'SEO 점수 23점↑, 리포팅은 Python으로 자동화' },
       { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '사운드플랫폼 팀 신설 + 마롱 전임자 이어받아 팀 확장·리드' },
     ]
   }
@@ -101,6 +101,24 @@ function initCompany() {
 
 initCompany();
 
+// ── Mobile Hamburger Menu ────────────────────────────────────
+const hamburger = document.getElementById('nav-hamburger');
+const mobileNav = document.querySelector('.nav-links');
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.textContent = isOpen ? '✕' : '☰';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.textContent = '☰';
+    });
+  });
+}
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ── Theme Toggle ──────────────────────────────────────────────
@@ -131,10 +149,10 @@ else setTheme('dark');
 
 // ── Typing Animation (Hero) ───────────────────────────────────
 const phrases = [
-  'B2B Marketing Strategist & Builder',
-  'Funnel Architect | Team Builder',
-  'Data-Driven Marketer | 12yr',
-  'Lead Gen · SEO · Automation',
+  'B2B 마케팅 12년 · 전략부터 실행까지',
+  '퍼널 설계 · 팀 빌딩 · 자동화',
+  '팀 없는 곳에서 시작하는 마케터',
+  '리드 생성 · SEO · Python 자동화',
 ];
 
 let phraseIdx = 0;
