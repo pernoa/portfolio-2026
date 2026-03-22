@@ -644,8 +644,17 @@ section {
   background: var(--bg-card);
 }
 
-.strength-panels {
+.strength-panels, .skills-tab-panels, .p02-panels {
   padding: 1.2rem 1.5rem;
+}
+
+.skills-tab-panel {
+  display: none;
+}
+
+.skills-tab-panel.active {
+  display: block;
+  animation: fadePanel 0.25s ease;
 }
 
 .strength-panel {

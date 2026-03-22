@@ -371,16 +371,27 @@ const navObserver = new IntersectionObserver(
 sections.forEach((s) => navObserver.observe(s));
 
 
-// ── Strength Tabs ────────────────────────────────────────────
-document.querySelectorAll('.strength-tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const idx = tab.dataset.tab;
-    document.querySelectorAll('.strength-tab').forEach((t) => t.classList.remove('active'));
-    document.querySelectorAll('.strength-panel').forEach((p) => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelectorAll('.strength-panel')[idx].classList.add('active');
+// ── Generic Tab Handler ──────────────────────────────────────
+function initTabs(tabAttr, panelSelector) {
+  document.querySelectorAll(`[${tabAttr}]`).forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const idx = tab.getAttribute(tabAttr);
+      const container = tab.closest('.strength-tabs');
+      container.querySelectorAll(`[${tabAttr}]`).forEach((t) => t.classList.remove('active'));
+      const panels = container.querySelectorAll(panelSelector);
+      panels.forEach((p) => p.classList.remove('active'));
+      tab.classList.add('active');
+      if (panels[idx]) panels[idx].classList.add('active');
+    });
   });
-});
+}
+
+// About 강점 탭
+initTabs('data-tab', '.strength-panel');
+// Skills 역량 탭
+initTabs('data-skills-tab', '.skills-tab-panel');
+// Project 02 탭
+initTabs('data-p02-tab', '.p02-panels > .strength-panel');
 
 
 // ── Print Button ──────────────────────────────────────────────

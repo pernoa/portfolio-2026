@@ -330,101 +330,48 @@
       <h2 class="section-title">역량 & 도구 스택</h2>
     </div>
 
-    <div class="skills-layout">
-      <!-- Skill Bars -->
-      <div>
-        <h3 style="font-size:0.8rem; color:var(--text-muted); margin-bottom:1.2rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.1em;">B2B 마케팅 역량</h3>
-        <div class="skill-bar-list">
-          <div class="skill-bar-item">
-            <span class="skill-name">B2B 마케팅 전략</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="95"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">12yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">리드 제너레이션</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="92"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">8yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">퍼널 설계·운영</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="95"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">5yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">세일즈 협업</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">8yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">퍼포먼스 마케팅</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="88"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">7yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">콘텐츠 전략 · SEO/AEO</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="93"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">6yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">데이터 분석·자동화</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="85"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">3yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">조직 리딩·팀 빌딩</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">5yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">글로벌 마케팅</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="80"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">2yr</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-name">CRM / MA</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="75"></div></div>
-            <span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">2yr</span>
-          </div>
-        </div>
+    <!-- Skills Tabs (카테고리별 역량 + 도구 통합) -->
+    <div class="strength-tabs scroll-reveal">
+      <div class="strength-tab-bar">
+        <button class="strength-tab active" data-skills-tab="0">전략·리드젠</button>
+        <button class="strength-tab" data-skills-tab="1">데이터·자동화</button>
+        <button class="strength-tab" data-skills-tab="2">채널·광고</button>
+        <button class="strength-tab" data-skills-tab="3">리더십·AI</button>
       </div>
-
-      <!-- Tool Grid -->
-      <div>
-        <h3 style="font-size:0.8rem; color:var(--text-muted); margin-bottom:1.2rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.1em;">도구 스택</h3>
-        <div class="tools-grid">
-          <span class="tool-category">퍼널·분석</span>
-          <span class="tool-badge">GTM</span>
-          <span class="tool-badge">Mixpanel</span>
-          <span class="tool-badge">GA4</span>
-          <span class="tool-badge">Semrush</span>
-          <span class="tool-badge">Hotjar</span>
-          <span class="tool-badge">Datadog</span>
-
-          <span class="tool-category">광고</span>
-          <span class="tool-badge">Google Ads</span>
-          <span class="tool-badge">네이버 광고</span>
-          <span class="tool-badge">META Ads</span>
-          <span class="tool-badge">YouTube</span>
-          <span class="tool-badge">LinkedIn</span>
-          <span class="tool-badge">Reddit</span>
-          <span class="tool-badge">리멤버</span>
-          <span class="tool-badge">커뮤니티 배너</span>
-          <span class="tool-badge">연예인 광고</span>
-
-          <span class="tool-category">자동화·개발</span>
-          <span class="tool-badge">Zapier</span>
-          <span class="tool-badge">Python</span>
-          <span class="tool-badge">Webflow</span>
-          <span class="tool-badge">Webflow CMS API</span>
-          <span class="tool-badge">Vercel</span>
-
-          <span class="tool-category">AI 도구</span>
-          <span class="tool-badge">Claude Code</span>
-          <span class="tool-badge">Cursor AI</span>
-          <span class="tool-badge">Midjourney</span>
-          <span class="tool-badge">HeyGen</span>
-          <span class="tool-badge">Suno AI</span>
-          <span class="tool-badge">GenSpark</span>
+      <div class="skills-tab-panels">
+        <!-- 전략·리드젠 -->
+        <div class="skills-tab-panel active">
+          <div class="skill-bar-list">
+            <div class="skill-bar-item"><span class="skill-name">B2B 마케팅 전략</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="95"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">12yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">리드 제너레이션</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="92"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">8yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">퍼널 설계·운영</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="95"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">5yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">세일즈 협업</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">8yr</span></div>
+          </div>
+          <div class="panel-tags" style="margin-top:1.2rem;"><span class="panel-tag">GTM</span><span class="panel-tag">Mixpanel</span><span class="panel-tag">GA4</span><span class="panel-tag">CRM</span><span class="panel-tag">Zapier</span><span class="panel-tag">Webflow</span></div>
+        </div>
+        <!-- 데이터·자동화 -->
+        <div class="skills-tab-panel">
+          <div class="skill-bar-list">
+            <div class="skill-bar-item"><span class="skill-name">콘텐츠 전략 · SEO/AEO</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="93"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">6yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">데이터 분석·자동화</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="85"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">3yr</span></div>
+          </div>
+          <div class="panel-tags" style="margin-top:1.2rem;"><span class="panel-tag">Python</span><span class="panel-tag">Semrush</span><span class="panel-tag">Hotjar</span><span class="panel-tag">Datadog</span><span class="panel-tag">Webflow CMS API</span><span class="panel-tag">Vercel</span></div>
+        </div>
+        <!-- 채널·광고 -->
+        <div class="skills-tab-panel">
+          <div class="skill-bar-list">
+            <div class="skill-bar-item"><span class="skill-name">퍼포먼스 마케팅</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="88"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">7yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">글로벌 마케팅</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="80"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">2yr</span></div>
+            <div class="skill-bar-item"><span class="skill-name">CRM / MA</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="75"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">2yr</span></div>
+          </div>
+          <div class="panel-tags" style="margin-top:1.2rem;"><span class="panel-tag">Google Ads</span><span class="panel-tag">네이버 광고</span><span class="panel-tag">META Ads</span><span class="panel-tag">YouTube</span><span class="panel-tag">LinkedIn</span><span class="panel-tag">Reddit</span><span class="panel-tag">리멤버</span></div>
+        </div>
+        <!-- 리더십·AI -->
+        <div class="skills-tab-panel">
+          <div class="skill-bar-list">
+            <div class="skill-bar-item"><span class="skill-name">조직 리딩·팀 빌딩</span><div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div><span class="skill-pct mono" style="font-size:0.65rem; color:var(--text-muted);">5yr</span></div>
+          </div>
+          <div class="panel-tags" style="margin-top:1.2rem;"><span class="panel-tag">Claude Code</span><span class="panel-tag">Cursor AI</span><span class="panel-tag">Midjourney</span><span class="panel-tag">HeyGen</span><span class="panel-tag">Suno AI</span><span class="panel-tag">GenSpark</span></div>
         </div>
       </div>
     </div>
@@ -574,95 +521,33 @@
             <span class="project-big-label">AEO+SEO 파일럿 콘텐츠 전환율 — 업계 평균 1% 대비 14배</span>
           </div>
 
-          <div class="project-body">
-            <!-- Delta Cards -->
-            <div>
-              <h4 style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:1rem;">Before → After</h4>
-              <div class="delta-cards">
-                <div class="delta-card">
-                  <div>
-                    <span class="delta-label">Site Health</span>
-                    <span class="delta-before">67점</span>
-                  </div>
-                  <span class="delta-arrow">→</span>
-                  <div>
-                    <span class="delta-label">3개월 후</span>
-                    <span class="delta-after">90점</span>
-                  </div>
-                  <span class="delta-pct">+34%</span>
-                </div>
-                <div class="delta-card">
-                  <div>
-                    <span class="delta-label">SEO 리포팅</span>
-                    <span class="delta-before">수동</span>
-                  </div>
-                  <span class="delta-arrow">→</span>
-                  <div>
-                    <span class="delta-label">현재</span>
-                    <span class="delta-after">풀 자동</span>
-                  </div>
-                  <span class="delta-pct">자동화</span>
-                </div>
-                <div class="delta-card">
-                  <div>
-                    <span class="delta-label">블로그 시스템</span>
-                    <span class="delta-before">없음</span>
-                  </div>
-                  <span class="delta-arrow">→</span>
-                  <div>
-                    <span class="delta-label">현재</span>
-                    <span class="delta-after">자동화</span>
-                  </div>
-                  <span class="delta-pct">신규</span>
-                </div>
-              </div>
-
-              <!-- Semrush 실제 스크린샷 -->
-              <div style="margin-top:1.5rem;">
-                <h4 style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:0.8rem;">실제 Semrush Site Audit 현황</h4>
-                <div class="screenshot-frame">
-                  <div class="frame-header">
-                    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
-                    <span style="font-size:0.65rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-left:0.4rem;">semrush — allganize.ai Site Audit</span>
-                  </div>
-                  <img src="assets/screenshots/semrush-site-health.png" alt="Semrush Site Health 90% — AI Search Health 88%" loading="lazy" style="border-radius:0 0 4px 4px;"/>
-                </div>
-                <p style="font-size:0.65rem; color:var(--text-muted); margin-top:0.4rem; font-style:italic;">67점에서 시작해 현재 90점 달성 · AI Search Health 88% · Top 10% 웹사이트 수준(92%) 근접</p>
-              </div>
-
-              <!-- Site Health Bar Chart -->
-              <div style="margin-top:1.5rem;">
-                <h4 style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:0.8rem;">Site Health 개선 추이</h4>
-                <div class="bar-chart-h">
-                  <div class="bar-chart-row">
-                    <span class="bar-label">Before</span>
-                    <div class="bar-track">
-                      <div class="bar-fill bar-fill-anim" data-width="67" style="background:var(--accent-red);"></div>
-                    </div>
-                    <span class="bar-value">67점</span>
-                  </div>
-                  <div class="bar-chart-row">
-                    <span class="bar-label">After</span>
-                    <div class="bar-track">
-                      <div class="bar-fill bar-fill-anim" data-width="89" style="background:linear-gradient(90deg, var(--accent-teal), var(--accent-green));"></div>
-                    </div>
-                    <span class="bar-value" style="color:var(--accent-green);">90점</span>
-                  </div>
-                </div>
-              </div>
+          <!-- Project 02 Tabs -->
+          <div class="strength-tabs" style="margin-top:1rem;">
+            <div class="strength-tab-bar">
+              <button class="strength-tab active" data-p02-tab="0">Before → After</button>
+              <button class="strength-tab" data-p02-tab="1">자동화 아키텍처</button>
+              <button class="strength-tab" data-p02-tab="2">실제 스크린샷</button>
             </div>
-
-            <!-- Code snippet -->
-            <div>
-              <h4 style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:1rem;">SEO 자동화 아키텍처 (Python)</h4>
-              <div class="code-block">
-                <div class="code-block-header">
-                  <span class="code-dot dot-red"></span>
-                  <span class="code-dot dot-yellow"></span>
-                  <span class="code-dot dot-green"></span>
-                  <span class="code-filename">seo_pipeline.py</span>
+            <div class="p02-panels">
+              <!-- Before → After -->
+              <div class="strength-panel active">
+                <div class="delta-cards">
+                  <div class="delta-card"><div><span class="delta-label">Site Health</span><span class="delta-before">67점</span></div><span class="delta-arrow">→</span><div><span class="delta-label">3개월 후</span><span class="delta-after">90점</span></div><span class="delta-pct">+34%</span></div>
+                  <div class="delta-card"><div><span class="delta-label">SEO 리포팅</span><span class="delta-before">수동</span></div><span class="delta-arrow">→</span><div><span class="delta-label">현재</span><span class="delta-after">풀 자동</span></div><span class="delta-pct">자동화</span></div>
+                  <div class="delta-card"><div><span class="delta-label">블로그 시스템</span><span class="delta-before">없음</span></div><span class="delta-arrow">→</span><div><span class="delta-label">현재</span><span class="delta-after">자동화</span></div><span class="delta-pct">신규</span></div>
                 </div>
-                <div class="code-content">
+                <div style="margin-top:1.2rem;">
+                  <div class="bar-chart-h">
+                    <div class="bar-chart-row"><span class="bar-label">Before</span><div class="bar-track"><div class="bar-fill bar-fill-anim" data-width="67" style="background:var(--accent-red);"></div></div><span class="bar-value">67점</span></div>
+                    <div class="bar-chart-row"><span class="bar-label">After</span><div class="bar-track"><div class="bar-fill bar-fill-anim" data-width="89" style="background:linear-gradient(90deg, var(--accent-teal), var(--accent-green));"></div></div><span class="bar-value" style="color:var(--accent-green);">90점</span></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Architecture -->
+              <div class="strength-panel">
+                <div class="code-block" style="margin:0;">
+                  <div class="code-block-header"><span class="code-dot dot-red"></span><span class="code-dot dot-yellow"></span><span class="code-dot dot-green"></span><span class="code-filename">seo_pipeline.py</span></div>
+                  <div class="code-content">
 <pre><code><span class="code-comment"># 실제 운영 중인 SEO 자동화 파이프라인</span>
 pipeline = {
   <span class="code-str">"수집"</span>: <span class="code-str">"Semrush API"</span>,
@@ -676,7 +561,16 @@ pipeline = {
 modules = [<span class="code-str">"config"</span>, <span class="code-str">"collector"</span>,
            <span class="code-str">"analyzer"</span>, <span class="code-str">"journey"</span>,
            <span class="code-str">"reporter"</span>, <span class="code-str">"blog_analyzer"</span>]</code></pre>
+                  </div>
                 </div>
+              </div>
+              <!-- Screenshots -->
+              <div class="strength-panel">
+                <div class="screenshot-frame">
+                  <div class="frame-header"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span><span style="font-size:0.65rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-left:0.4rem;">semrush — allganize.ai Site Audit</span></div>
+                  <img src="assets/screenshots/semrush-site-health.png" alt="Semrush Site Health 90%" loading="lazy" style="border-radius:0 0 4px 4px;"/>
+                </div>
+                <p style="font-size:0.65rem; color:var(--text-muted); margin-top:0.4rem; font-style:italic;">67점에서 시작해 현재 90점 달성 · AI Search Health 88% · Top 10% 웹사이트 수준(92%) 근접</p>
               </div>
             </div>
           </div>
