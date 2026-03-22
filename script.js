@@ -371,6 +371,18 @@ const navObserver = new IntersectionObserver(
 sections.forEach((s) => navObserver.observe(s));
 
 
+// ── Strength Tabs ────────────────────────────────────────────
+document.querySelectorAll('.strength-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const idx = tab.dataset.tab;
+    document.querySelectorAll('.strength-tab').forEach((t) => t.classList.remove('active'));
+    document.querySelectorAll('.strength-panel').forEach((p) => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.strength-panel')[idx].classList.add('active');
+  });
+});
+
+
 // ── Print Button ──────────────────────────────────────────────
 const printBtn = document.getElementById('print-btn');
 if (printBtn) {
