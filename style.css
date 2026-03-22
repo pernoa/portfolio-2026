@@ -71,6 +71,10 @@
   --glow-green: none;
 }
 
+[data-theme="light"] .hero-name {
+  -webkit-text-stroke: 1px rgba(13, 148, 136, 0.4);
+}
+
 /* ==============================
    Reset & Base
    ============================== */
