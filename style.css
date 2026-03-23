@@ -409,7 +409,8 @@ section {
   color: var(--text-muted);
   margin-top: 0.4rem;
   display: block;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
 }
 
 /* ==============================
@@ -708,11 +709,23 @@ section {
   line-height: 1.7;
 }
 
+.strength-desc p {
+  margin-bottom: 0.7rem;
+}
+
+.strength-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.strength-desc p strong {
+  color: var(--text-primary);
+}
+
 .panel-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   padding-top: 0.8rem;
   border-top: 1px solid var(--border-subtle);
 }
@@ -1531,7 +1544,7 @@ section {
   top: calc(100% + 6px);
   left: 0;
   min-width: 180px;
-  background: #1e293b;
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.4rem 0;
@@ -1559,7 +1572,6 @@ section {
 }
 
 [data-theme="light"] .dropdown-menu {
-  background: #ffffff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
@@ -1693,6 +1705,85 @@ section {
   color: var(--text-primary);
   font-size: 1.4rem;
   line-height: 1;
+}
+
+/* ==============================
+   Utility Classes (인라인 스타일 대체)
+   ============================== */
+
+/* 프로젝트 섹션 소제목 */
+.project-sub-heading {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 1rem;
+}
+
+/* 스크린샷 프레임 내 라벨 */
+.frame-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-left: 0.4rem;
+}
+
+/* 스크린샷 이미지 하단 라운드 */
+.frame-img {
+  border-radius: 0 0 4px 4px;
+}
+
+/* 스크린샷 캡션 */
+.frame-caption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+/* big-num 색상 변형 */
+.project-big-num.blue { color: var(--accent-blue); }
+.project-big-num.green { color: var(--accent-green); }
+.project-big-num.yellow { color: var(--accent-yellow); }
+.project-big-num.red { color: var(--accent-red); }
+.project-big-num.purple { color: var(--accent-purple); }
+
+/* 마진 유틸 */
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 1.5rem; }
+.mt-lg { margin-top: 2rem; }
+
+/* ==============================
+   Tablet (768px ~ 1024px)
+   ============================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container { padding: 0 1.5rem; }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .why-grid .why-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .project-body {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jd-table { font-size: 0.85rem; }
 }
 
 @media (max-width: 768px) {

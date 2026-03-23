@@ -81,6 +81,15 @@
   .m-card .label { font-size: 8pt; font-weight: 700; margin-top: 4px; }
   .m-card .sub { font-size: 7pt; color: var(--text2); margin-top: 2px; }
 
+  /* ── 슬라이드 콘텐츠 수직 분배 ── */
+  .slide > .two-col,
+  .slide > .add-grid,
+  .slide > .tl,
+  .slide > .why-grid {
+    flex: 1;
+    align-content: center;
+  }
+
   /* ── JD Table ── */
   .jd { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
   .jd th { background: var(--accent); color: #fff; padding: 6px 10px; text-align: left; font-weight: 600; font-size: 7.5pt; }
@@ -221,6 +230,27 @@
   <div class="sub">B2B Marketing Strategist & Builder</div>
   <span class="target">for 테크타카 — B2B Marketing Lead</span>
   <div class="contact">010-3479-2349 · pernoa@naver.com<br/>12+ years · B2B SaaS · B2C SaaS · B2B/B2G</div>
+
+  <!-- 핵심 지표 -->
+  <div style="display:flex; gap:16px; margin-top:24px; flex-wrap:wrap;">
+    <div style="background:var(--accent-light); padding:8px 16px; border-radius:6px; text-align:center;">
+      <div style="font-size:18pt; font-weight:900; color:var(--accent); font-family:'JetBrains Mono',monospace;">118%</div>
+      <div style="font-size:7pt; color:var(--text2);">리드 KPI 초과</div>
+    </div>
+    <div style="background:var(--accent-light); padding:8px 16px; border-radius:6px; text-align:center;">
+      <div style="font-size:18pt; font-weight:900; color:var(--accent); font-family:'JetBrains Mono',monospace;">-83%</div>
+      <div style="font-size:7pt; color:var(--text2);">CPA 절감</div>
+    </div>
+    <div style="background:var(--accent-light); padding:8px 16px; border-radius:6px; text-align:center;">
+      <div style="font-size:18pt; font-weight:900; color:var(--accent); font-family:'JetBrains Mono',monospace;">80개국</div>
+      <div style="font-size:7pt; color:var(--text2);">글로벌 확장</div>
+    </div>
+    <div style="background:var(--accent-light); padding:8px 16px; border-radius:6px; text-align:center;">
+      <div style="font-size:18pt; font-weight:900; color:var(--accent); font-family:'JetBrains Mono',monospace;">0→1 ×2</div>
+      <div style="font-size:7pt; color:var(--text2);">팀 빌딩</div>
+    </div>
+  </div>
+
   <div class="cover-deco"></div>
   <div class="slide-footer"><span>김지수 포트폴리오 2026</span><span class="slide-num">01 / 14</span></div>
 </div>
@@ -623,16 +653,16 @@ pipeline = {
   <div class="two-col">
     <div>
       <div style="font-size:7pt; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-bottom:8px;">B2B 마케팅 역량</div>
-      <div class="sk-row"><span class="sk-name">B2B 마케팅 전략</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">95%</span></div>
-      <div class="sk-row"><span class="sk-name">퍼널 설계·운영</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">95%</span></div>
-      <div class="sk-row"><span class="sk-name">콘텐츠 · SEO/AEO</span><div class="sk-track"><div class="sk-fill" style="width:93%"></div></div><span class="sk-pct">93%</span></div>
-      <div class="sk-row"><span class="sk-name">리드 제너레이션</span><div class="sk-track"><div class="sk-fill" style="width:92%"></div></div><span class="sk-pct">92%</span></div>
-      <div class="sk-row"><span class="sk-name">세일즈 협업</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">90%</span></div>
-      <div class="sk-row"><span class="sk-name">조직 리딩·팀 빌딩</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">90%</span></div>
-      <div class="sk-row"><span class="sk-name">퍼포먼스 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:88%"></div></div><span class="sk-pct">88%</span></div>
-      <div class="sk-row"><span class="sk-name">데이터 분석·자동화</span><div class="sk-track"><div class="sk-fill" style="width:85%"></div></div><span class="sk-pct">85%</span></div>
-      <div class="sk-row"><span class="sk-name">글로벌 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:80%"></div></div><span class="sk-pct">80%</span></div>
-      <div class="sk-row"><span class="sk-name">CRM / MA</span><div class="sk-track"><div class="sk-fill" style="width:75%"></div></div><span class="sk-pct">75%</span></div>
+      <div class="sk-row"><span class="sk-name">B2B 마케팅 전략</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">12yr</span></div>
+      <div class="sk-row"><span class="sk-name">퍼널 설계·운영</span><div class="sk-track"><div class="sk-fill" style="width:95%"></div></div><span class="sk-pct">5yr</span></div>
+      <div class="sk-row"><span class="sk-name">콘텐츠 · SEO/AEO</span><div class="sk-track"><div class="sk-fill" style="width:93%"></div></div><span class="sk-pct">6yr</span></div>
+      <div class="sk-row"><span class="sk-name">리드 제너레이션</span><div class="sk-track"><div class="sk-fill" style="width:92%"></div></div><span class="sk-pct">8yr</span></div>
+      <div class="sk-row"><span class="sk-name">세일즈 협업</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">8yr</span></div>
+      <div class="sk-row"><span class="sk-name">조직 리딩·팀 빌딩</span><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div><span class="sk-pct">5yr</span></div>
+      <div class="sk-row"><span class="sk-name">퍼포먼스 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:88%"></div></div><span class="sk-pct">7yr</span></div>
+      <div class="sk-row"><span class="sk-name">데이터 분석·자동화</span><div class="sk-track"><div class="sk-fill" style="width:85%"></div></div><span class="sk-pct">3yr</span></div>
+      <div class="sk-row"><span class="sk-name">글로벌 마케팅</span><div class="sk-track"><div class="sk-fill" style="width:80%"></div></div><span class="sk-pct">2yr</span></div>
+      <div class="sk-row"><span class="sk-name">CRM / MA</span><div class="sk-track"><div class="sk-fill" style="width:75%"></div></div><span class="sk-pct">2yr</span></div>
     </div>
     <div class="tools-sec">
       <div><div class="tg-title">퍼널 · 분석</div><div class="tg-wrap"><span class="tg">GTM</span><span class="tg">Mixpanel</span><span class="tg">GA4</span><span class="tg">Semrush</span><span class="tg">Hotjar</span><span class="tg">Datadog</span></div></div>
@@ -667,7 +697,7 @@ pipeline = {
       <span class="tl-period">2021.03 –<br/>2023.08</span>
       <div>
         <span class="tl-title">마롱컴퍼니</span> · <span class="tl-sub">공공미술 B2B · 마케팅 팀장</span><br/>
-        <span class="tl-result">리드 KPI 118% 초과 · 매출 1.4배 · SEO 키워드 점유 30→70% · OKR 최초 도입 · 경쟁사 모방 유발</span>
+        <span class="tl-result">리드 KPI 118% 초과 · 매출 1.4배 · 팀 1→2 확장·리드 · SEO 키워드 점유 30→70% · OKR 최초 도입</span>
       </div>
     </div>
     <div class="tl-row" style="padding:6px 0;">

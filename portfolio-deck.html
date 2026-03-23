@@ -334,8 +334,25 @@
   .ring-inline { display: flex; align-items: center; gap: 10px; }
 
   @media print {
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .slide { break-after: page; }
+    :root {
+      --bg: #FFFFFF;
+      --bg2: #F8FAFC;
+      --bg3: #F1F5F9;
+      --text: #1A1A2E;
+      --text2: #4A4A6A;
+      --muted: #6B7280;
+      --teal: #0D7377;
+      --green: #059669;
+      --blue: #2563EB;
+      --purple: #7C3AED;
+      --pink: #DB2777;
+      --yellow: #B45309;
+      --red: #BE123C;
+      --border: #E2E8F0;
+      --glow: none;
+    }
+    body { background: #FFFFFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .slide { background: #FFFFFF !important; break-after: page; }
     .slide:last-child { break-after: auto; }
   }
 </style>
@@ -777,7 +794,7 @@ pipeline = {
             <div class="tl-period">2021.03 – 2023.08</div>
             <div class="tl-title">마롱컴퍼니 · 마케팅 팀장</div>
             <div class="tl-sub">공공미술·건축미술심의</div>
-            <div class="tl-result">KPI 118% · 매출 140% · OKR</div>
+            <div class="tl-result">KPI 118% · 매출 140% · 팀 1→2 확장·리드 · OKR</div>
           </div>
           <div class="tl-item">
             <div class="tl-period">2018.05 – 2021.01</div>
