@@ -150,9 +150,9 @@ else setTheme('dark');
 // ── Typing Animation (Hero) ───────────────────────────────────
 const phrases = [
   'B2B 마케팅 12년 · 전략부터 실행까지',
-  '퍼널 설계 · 팀 빌딩 · 자동화',
-  '팀 없는 곳에서 시작하는 마케터',
-  '리드 생성 · SEO · Python 자동화',
+  '전략 수립 · 팀 빌딩 · 퍼널 설계',
+  '팀 없는 곳에서 조직을 만드는 리더',
+  '리드 퍼널 · 데이터 기반 의사결정 · 자동화',
 ];
 
 let phraseIdx = 0;
@@ -399,3 +399,37 @@ const printBtn = document.getElementById('print-btn');
 if (printBtn) {
   printBtn.addEventListener('click', () => window.print());
 }
+
+
+// ── Dropdown Toggle (Hero CTA) ──────────────────────────────
+document.querySelectorAll('.dropdown-toggle').forEach((toggle) => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const menu = toggle.nextElementSibling;
+    const isOpen = menu.classList.contains('open');
+    // 모든 드롭다운 닫기
+    document.querySelectorAll('.dropdown-menu').forEach((m) => m.classList.remove('open'));
+    if (!isOpen) menu.classList.add('open');
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.dropdown-menu').forEach((m) => m.classList.remove('open'));
+});
+
+
+// ── Document Tabs (Documents Section) ───────────────────────
+document.querySelectorAll('.doc-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const docKey = tab.getAttribute('data-doc');
+
+    // 탭 활성화 전환
+    document.querySelectorAll('.doc-tab').forEach((t) => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // 패널 전환
+    document.querySelectorAll('.doc-panel').forEach((p) => p.classList.remove('active'));
+    const target = document.getElementById('doc-' + docKey);
+    if (target) target.classList.add('active');
+  });
+});

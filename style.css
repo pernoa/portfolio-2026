@@ -1513,6 +1513,154 @@ section {
 /* ==============================
    Accessibility — Reduced Motion
    ============================== */
+/* ==============================
+   Dropdown (Hero CTA)
+   ============================== */
+.dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  background: #1e293b;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0;
+  z-index: 50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-menu.open {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(13, 148, 136, 0.15);
+  color: #0d9488;
+}
+
+[data-theme="light"] .dropdown-menu {
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ==============================
+   Documents Section
+   ============================== */
+.doc-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.doc-tab {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.doc-tab:hover {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+}
+
+.doc-tab.active {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+  border-color: var(--accent-teal);
+}
+
+.doc-viewer {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.doc-panel {
+  display: none;
+}
+
+.doc-panel.active {
+  display: block;
+}
+
+.doc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.2rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  background: transparent;
+  color: var(--accent-blue);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-sm:hover {
+  background: rgba(94, 234, 212, 0.1);
+  border-color: var(--accent-blue);
+}
+
+.doc-frame {
+  width: 100%;
+  height: 600px;
+  border: none;
+  background: #f8fafc;
+}
+
+[data-theme="dark"] .doc-frame {
+  background: #f8fafc;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1603,6 +1751,11 @@ section {
   .contact-box { padding: 2rem 1.5rem; }
   .contact-actions { flex-direction: column; }
   .contact-actions .btn { width: 100%; justify-content: center; }
+
+  .doc-frame { height: 450px; }
+  .doc-tabs { gap: 0.4rem; }
+  .doc-tab { padding: 0.5rem 1rem; font-size: 0.8rem; }
+  .dropdown-menu { min-width: 160px; }
 }
 
 @media (max-width: 480px) {
@@ -1615,6 +1768,8 @@ section {
   .metric-big-num { font-size: 2.2rem; }
   .strength-card { padding: 1rem; }
   .code-content { padding: 0.8rem; font-size: 0.8rem; }
+  .doc-frame { height: 350px; }
+  .doc-tab { flex: 1; text-align: center; padding: 0.5rem 0.6rem; font-size: 0.75rem; }
 }
 
 /* ==============================
@@ -1626,7 +1781,7 @@ section {
 @media print {
   /* 불필요 UI 숨김 */
   nav, .skip-link, .cursor, .btn, .hero-cta,
-  .theme-toggle, .contact-actions { display: none !important; }
+  .theme-toggle, .contact-actions, #documents { display: none !important; }
 
   /* 스캔라인 제거 (웹/출력 모두) */
   #hero::before, #hero::after { display: none !important; content: none !important; }

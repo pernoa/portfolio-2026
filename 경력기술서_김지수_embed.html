@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경력기술서 — 김지수</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 16mm 16mm;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fff;
+    padding: 28px 36px;
+    max-width: 800px;
+    margin: 0 auto;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header {
+    text-align: center;
+    padding-bottom: 14pt;
+    border-bottom: 2.5pt solid #0d9488;
+    margin-bottom: 14pt;
+  }
+  .header h1 {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5pt;
+    margin-bottom: 2pt;
+  }
+  .header .subtitle {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #0d9488;
+    margin-bottom: 8pt;
+  }
+  .header .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 18pt;
+    font-size: 9pt;
+    color: #475569;
+  }
+  .header .contact-row span { white-space: nowrap; }
+
+  .section {
+    margin-bottom: 14pt;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0d9488;
+    border-bottom: 1pt solid #e2e8f0;
+    padding-bottom: 3pt;
+    margin-bottom: 8pt;
+    letter-spacing: 0.5pt;
+  }
+
+  .career-entry {
+    margin-bottom: 14pt;
+    page-break-inside: avoid;
+  }
+  .career-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2pt;
+  }
+  .career-company {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .career-period {
+    font-size: 8.5pt;
+    color: #64748b;
+    white-space: nowrap;
+  }
+  .career-role {
+    font-size: 8.5pt;
+    color: #64748b;
+    margin-bottom: 5pt;
+  }
+
+  .keyword-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4pt;
+    margin-bottom: 6pt;
+  }
+  .keyword-tag {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #0d9488;
+    background: #f0fdfa;
+    border: 0.5pt solid #99f6e4;
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+  }
+
+  .result-box {
+    background: #f8fafc;
+    border-left: 3pt solid #0d9488;
+    padding: 5pt 10pt;
+    border-radius: 0 4pt 4pt 0;
+    margin-bottom: 6pt;
+  }
+  .result-box-title {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #0d9488;
+    margin-bottom: 2pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+  }
+  .result-list {
+    list-style: none;
+    font-size: 8.5pt;
+    color: #0f172a;
+    line-height: 1.6;
+  }
+  .result-list li::before {
+    content: "✦ ";
+    color: #0d9488;
+    font-weight: 700;
+  }
+  .result-list li strong {
+    color: #0f172a;
+  }
+
+  .detail-title {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 4pt;
+    margin-bottom: 2pt;
+  }
+  .detail-list {
+    list-style: none;
+    font-size: 8.5pt;
+    color: #334155;
+    line-height: 1.6;
+    padding-left: 2pt;
+  }
+  .detail-list li::before {
+    content: "• ";
+    color: #94a3b8;
+  }
+  .detail-list li strong {
+    color: #0f172a;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5pt solid #e2e8f0;
+    margin: 8pt 0;
+  }
+
+  .highlight {
+    background: #f0fdfa;
+    padding: 4pt 8pt;
+    border-radius: 3pt;
+    margin-top: 4pt;
+    border-left: 2pt solid #14b8a6;
+  }
+  .highlight-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #0d9488;
+    margin-bottom: 1pt;
+  }
+
+  @media print {
+    body { font-size: 9.5pt; }
+    .career-entry { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <h1>김지수 <span style="font-weight:500; font-size:14pt; color:#64748b;">KIM JISU</span></h1>
+  <div class="subtitle">경력기술서</div>
+  <div class="contact-row">
+    <span>📞 010-3479-2349</span>
+    <span>✉️ pernoa@naver.com</span>
+    <span>🎓 동국대학교 국어교육과</span>
+    <span>💼 경력 12년+</span>
+  </div>
+</div>
+
+<!-- ═══════════ 1. 올거나이즈 ═══════════ -->
+<div class="section">
+  <div class="section-title">경력 상세</div>
+
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">1. 올거나이즈코리아 (Allganize Korea)</span>
+      <span class="career-period">2025.04 ~ 현재 (11개월)</span>
+    </div>
+    <div class="career-role">정규직 · 마케터 (1인 풀퍼널 마케팅 체제 구축) | 엔터프라이즈 AI 솔루션 (B2B SaaS)</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">B2B SaaS 마케팅 전략 총괄</span>
+      <span class="keyword-tag">GTM·Mixpanel 퍼널 설계</span>
+      <span class="keyword-tag">SEO/AEO 자동화</span>
+      <span class="keyword-tag">콘텐츠 마케팅</span>
+      <span class="keyword-tag">Webflow</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li>콘텐츠 마케팅 상위 포스트 <strong>문의 전환율 9.5~14.3%</strong> (업계 평균 1% 대비 최대 14배)</li>
+        <li><strong>Site Health 67→89점(+33%)</strong> — Semrush API 기반 SEO 자동화 시스템 직접 구축</li>
+        <li>Mixpanel Export API 기반 마케팅 퍼널 분석 자동화 시스템 구축 <strong>(Python 6모듈)</strong></li>
+        <li>AEO 전략을 정의하고, 5개 AI 채널별 질문 20개를 정리해 콘텐츠 기획 기준으로 활용</li>
+      </ul>
+    </div>
+
+    <div class="detail-title">마케팅 전략 & 퍼널 구축</div>
+    <ul class="detail-list">
+      <li>Webflow 기반 한/영 2개 언어 사이트 제작·운영 총괄</li>
+      <li>GTM·Mixpanel 기반 전환 퍼널(광고클릭→문의폼→세일즈연계)을 설계하고, <strong>MQL→SQL 전환 기준을 정의해 운영</strong></li>
+      <li>Google Ads 캠페인 전략·운영, 제외 키워드·경쟁사 분석 기반 최적화</li>
+      <li>LLM Ops 서비스 GTM 전략 수립, LinkedIn 아웃바운드 방향 설정, 미국·일본 팀과 주간 단위로 실행안 공유</li>
+    </ul>
+
+    <div class="detail-title">리드 제너레이션 & 세일즈 연계</div>
+    <ul class="detail-list">
+      <li>콘텐츠 마케터 퇴사 후 후임 채용 대신 자동화를 선택 — B2B 기술 블로그를 기획부터 Webflow 발행까지 자동화하고, '에이전틱 AI 가이드' 시리즈 10편을 1인 체제로 발행</li>
+      <li>Zapier→슬랙 자동전달 + 문의 처리 관리 시스템 구축, INQ- 번호 체계 정비 → 세일즈팀 리드 연계</li>
+      <li>엔터프라이즈 고객 케이스스터디(KT 디바이스·한화생명) 제작·발행 → 세일즈팀 미팅 자료 활용</li>
+      <li>리멤버 설문형 리드젠 캠페인 운영 (대기업 타겟 리드 확보)</li>
+      <li>MQL/SQL을 분류해 뉴스레터로 너처링하는 흐름을 설계</li>
+    </ul>
+
+    <div class="detail-title">브랜드 & 글로벌 협업</div>
+    <ul class="detail-list">
+      <li>올거나이즈코리아 한국어 위키백과 최초 등재 기획·실행</li>
+      <li>2026 AI 엑스포(COEX) 기획·준비, 국방 AI 프로젝트 홍보영상 제작</li>
+      <li>글로벌팀(미국/일본) 영문 보고서 직접 작성 및 CEO·리더십 주간 커뮤니케이션</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ 2. 사운드플랫폼 ═══════════ -->
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">2. 사운드플랫폼</span>
+      <span class="career-period">2023.08 ~ 2025.04 (1년 9개월)</span>
+    </div>
+    <div class="career-role">정규직 · 마케팅 팀장 | AI 마스터링 서비스 'Munute' (B2C SaaS)</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">Growth Marketing</span>
+      <span class="keyword-tag">글로벌 퍼포먼스</span>
+      <span class="keyword-tag">데이터 기반 최적화</span>
+      <span class="keyword-tag">A/B Testing</span>
+      <span class="keyword-tag">마케팅 조직 신설(0→1)</span>
+      <span class="keyword-tag">팀 리딩</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li><strong>80개국 5만+ 유저 확보</strong>, 음원 데이터 25만 건 — 신규 시장 진입 10개월 성과</li>
+        <li>국가·소재·랜딩 조합별 A/B 테스트를 6개월간 반복해 가입 CPA <strong>83% 절감</strong> (₩12,000→₩2,000), 클릭률 <strong>0.3%→1.7%</strong></li>
+        <li>유료 구독 CPA <strong>42% 절감</strong> (₩240,000→₩140,000, 미국·캐나다)</li>
+        <li>마케팅 팀 0→1 신설, 다국적 팀(중국·일본 시장 담당) 구성·교육·관리</li>
+      </ul>
+    </div>
+
+    <div class="detail-title">GTM 전략 & 글로벌 확장</div>
+    <ul class="detail-list">
+      <li>글로벌 시장 진입 전략 수립·실행: 국가·채널별 A/B 테스트 → 최효율 조합 탐색</li>
+      <li>Google Ads·YouTube·META·Reddit·LinkedIn 등 글로벌 채널 1억 예산 직접 운영·최적화</li>
+      <li>사용자 행동 데이터(가입→서비스이용→재방문) 추적, 랜딩·광고 소재 실시간 최적화</li>
+    </ul>
+
+    <div class="detail-title">리드 퍼널 & 퍼포먼스 최적화</div>
+    <ul class="detail-list">
+      <li>가입 전환 퍼널 설계·운영: 지역별 캠페인 분리, 메시지·입찰가·랜딩페이지 A/B 테스트</li>
+      <li>실시간 모니터링: 클릭→가입→구독 과정 추적, CPA 지표 높은 구간 즉시 개선</li>
+      <li>GA, Hotjar, Datadog을 활용해 가설을 세우고 실험한 뒤 결과를 측정하는 사이클로 운영</li>
+    </ul>
+
+    <div class="detail-title">브랜드 포지셔닝 & 팀 리딩</div>
+    <ul class="detail-list">
+      <li>AI 마스터링 브랜드 'Munute' 포지셔닝 전략 수립 및 국내 시장 런칭</li>
+      <li>인플루언서·뮤지션 협업, 서포터즈 운영, 2024 월드IT쇼 박람회 부스 기획·운영</li>
+      <li>유튜브 오가닉 조회수 10만+, 런칭 3개월 활성 사용자 7만+</li>
+    </ul>
+
+    <div class="highlight">
+      <div class="highlight-title">마케팅 조직 0→1 빌딩</div>
+      <ul class="detail-list">
+        <li>마케팅 팀을 처음부터 구성: 중국·일본 시장 담당 직원 채용·교육</li>
+        <li>각 멤버에게 마케팅 실무를 가르치며 역할을 나누고, 팀 단위 성과 관리를 운영</li>
+        <li>글로벌 확장에 맞춰 팀 규모와 역할을 단계적으로 확대</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ 3. 마롱컴퍼니 ═══════════ -->
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">3. 마롱컴퍼니</span>
+      <span class="career-period">2021.03 ~ 2023.08 (2년 6개월)</span>
+    </div>
+    <div class="career-role">정규직 · 마케팅 팀장 | 국내 1위 B2B 미술 프로젝트 기업</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">Lead Generation</span>
+      <span class="keyword-tag">B2B 마케팅</span>
+      <span class="keyword-tag">SEO/SEM</span>
+      <span class="keyword-tag">OKR·PDCA</span>
+      <span class="keyword-tag">팀 확장·리딩</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li>온라인 문의 건수 <strong>KPI 118% 초과 달성</strong>, 매출 <strong>140% 성장</strong></li>
+        <li>SEO 개선: 오가닉 유입 <strong>130% 증가</strong>, 체류시간 50초→1분 30초 (80%↑)</li>
+        <li>키워드 광고 비용 <strong>33% 절감</strong> (월 600만→400만), 블로그 키워드 점유율 30%→70%</li>
+        <li>전임 마케터를 이어받아 팀으로 확장, <strong>OKR·PDCA 최초 도입</strong></li>
+      </ul>
+    </div>
+
+    <div class="detail-title">B2B 리드 제너레이션 & 전환 최적화</div>
+    <ul class="detail-list">
+      <li>타겟별 랜딩페이지 A/B 테스트, 영업팀 VOC 기반 메시지 최적화 → 전환율 개선</li>
+      <li>CRM 연계: 오프라인 영업과 온라인 마케팅 데이터 통합, 신규 고객 확보 및 리텐션 강화</li>
+      <li>경쟁사 3곳이 홈페이지·전략을 통째로 카피하며 경쟁 심화 → 유료 광고 의존도를 줄이고 SEO·콘텐츠 중심으로 전환하는 판단을 내려 극복</li>
+    </ul>
+
+    <div class="detail-title">콘텐츠 & SEO/SEM</div>
+    <ul class="detail-list">
+      <li>워드프레스 SEO 플러그인 + 네이버/구글 웹마스터 세팅, 키워드별 맞춤 랜딩페이지 운영</li>
+      <li>AI 생성형 이미지 등 독특한 광고 소재로 클릭률↑ & 광고비↓</li>
+      <li>12개+ 블로그 운영, 외부 블로거 섭외·협업 → 키워드 점유율 확대</li>
+    </ul>
+
+    <div class="highlight">
+      <div class="highlight-title">조직 빌딩 & 시스템 구축</div>
+      <ul class="detail-list">
+        <li>후임을 채용하고 육성하며, 각 사업팀(공공미술·건축미술심의·갤러리) 내 마케팅 담당자를 배치해 자율 운영 체계 구축</li>
+        <li><strong>OKR·PDCA를 처음 도입</strong>하고, 경쟁사 3곳이 전략을 카피하는 상황에서도 목표를 초과 달성</li>
+        <li>외부 자원(블로거·대행사) 레버리지 활용 극대화</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ 4. 무버먼한국 ═══════════ -->
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">4. 무버먼한국</span>
+      <span class="career-period">2018.05 ~ 2021.01 (2년 9개월)</span>
+    </div>
+    <div class="career-role">정규직 · 디지털마케팅팀 과장 | 디지털 마케팅 대행사 (B2B/B2G)</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">Performance Marketing</span>
+      <span class="keyword-tag">CTR·CPC 개선</span>
+      <span class="keyword-tag">제안서 기획</span>
+      <span class="keyword-tag">정부·공공기관 PR</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li>KAIST 경영대학 홍보: 기존 디스플레이 광고의 타겟팅과 소재를 전면 재설계해 <strong>CTR 3,050% 상승</strong>, 지원율 <strong>30~40% 증가</strong></li>
+        <li>(사)한국문화예술위원회 홍보: 모집목표 <strong>60%→90% 달성</strong></li>
+        <li>와디즈 크라우드 펀딩 <strong>최대 3,000% 달성</strong></li>
+      </ul>
+    </div>
+
+    <ul class="detail-list">
+      <li>정부·공공기관 디지털 마케팅 캠페인 기획·집행</li>
+      <li>다양한 산업 도메인(교육·문화·IT·제조) B2B/B2G 마케팅 캠페인 경험</li>
+      <li>크라우드펀딩(와디즈) 홍보 캠페인 기획·실행</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ 5. 리앤사시스템 ═══════════ -->
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">5. 리앤사시스템</span>
+      <span class="career-period">2016.02 ~ 2018.03 (2년 2개월)</span>
+    </div>
+    <div class="career-role">정규직 · 마케팅/영업 담당 | 해외 음향기기 수입 유통</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">브랜드 론칭</span>
+      <span class="keyword-tag">인플루언서 협업</span>
+      <span class="keyword-tag">온오프라인 유통</span>
+      <span class="keyword-tag">관계형 마케팅</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li>신규 음향기기 브랜드 3종(CTM·V-MODA·ZERO-AUDIO) 국내 론칭</li>
+        <li>유명 가수 <strong>자발적 구매 유도</strong> (현아·헤이즈·효린·CHEEZE·Astro MJ 등)</li>
+        <li>SNS 노출 <strong>350% 확대</strong>, 인플루언서 마케팅으로 <strong>매출 200% 상승</strong></li>
+        <li>국내 최대 이어폰 매장·이마트 입점 달성</li>
+      </ul>
+    </div>
+
+    <ul class="detail-list">
+      <li>국내에 알려지지 않은 상태에서 뮤지션·프로듀서 네트워크를 통해 자연 확산</li>
+      <li>제품 체험 제공 → 실사용 후기·인증샷 → SNS 바이럴</li>
+      <li>오프라인: 브랜드 런칭쇼·KOBA 음향기기 전시 기획·운영, 유통망 확대</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════ 6. 인포스케이프 ═══════════ -->
+  <div class="career-entry">
+    <div class="career-header">
+      <span class="career-company">6. 인포스케이프</span>
+      <span class="career-period">2011.09 ~ 2013.05 (1년 9개월)</span>
+    </div>
+    <div class="career-role">정규직 · CS 및 온라인마케팅 담당</div>
+
+    <div class="keyword-row">
+      <span class="keyword-tag">온라인 마케팅</span>
+      <span class="keyword-tag">블로그·키워드 광고</span>
+      <span class="keyword-tag">VOC 프로세스</span>
+    </div>
+
+    <div class="result-box">
+      <div class="result-box-title">주요 성과</div>
+      <ul class="result-list">
+        <li>월 방문자 <strong>3만 명 이상</strong> 확보, 매출 <strong>135% 성장</strong></li>
+        <li>VOC 프로세스 구축으로 <strong>재구매율 20% 증대</strong></li>
+      </ul>
+    </div>
+
+    <ul class="detail-list">
+      <li>블로그 운영으로 신규 유저 확보 및 클레임 최소화</li>
+      <li>고객 VOC 분석 기반 재구매 유도 프로세스 구축</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
