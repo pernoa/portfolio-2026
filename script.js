@@ -10,6 +10,10 @@ const COMPANIES = {
     jdTitle: '테크타카 JD ↔ 내 경험 매핑',
     whyTitle: '왜 테크타카인가',
     contactLine: '테크타카 B2B Marketing Lead 포지션에 지원합니다.',
+    downloads: {
+      portfolio: '김지수_포트폴리오_테크타카.pdf',
+      cover: '김지수_자기소개서_테크타카.pdf'
+    },
     whyCards: [
       {
         num: '01',
@@ -33,6 +37,47 @@ const COMPANIES = {
       { req: '브랜드 & 메시징',     project: '사운드플랫폼',         result: '유튜브 데모 10만 뷰, 런칭 3개월 만에 7만 유저' },
       { req: '데이터 & 실행',       project: '올거나이즈',           result: 'SEO 점수 23점↑, 리포팅은 Python으로 자동화' },
       { req: '조직 리딩',           project: '사운드플랫폼 · 마롱',  result: '사운드플랫폼 팀 신설 + 마롱 전임자 이어받아 팀 확장·리드' },
+    ]
+  },
+
+  tosspayments: {
+    name: '토스페이먼츠',
+    navLabel: 'Why Toss Payments',
+    jdTitle: '토스페이먼츠 JD ↔ 내 경험 매핑',
+    whyTitle: '왜 토스페이먼츠인가',
+    contactLine: '토스페이먼츠 Marketing Manager (B2B) 포지션에 지원합니다.',
+    downloads: {
+      portfolio: '김지수_포트폴리오_토스페이먼츠.pdf',
+      cover: '김지수_자기소개서_토스페이먼츠.pdf'
+    },
+    embedSources: {
+      cover: '자기소개서_토스페이먼츠_embed.html'
+    },
+    whyCards: [
+      {
+        num: '01',
+        title: 'PG 시장의 가맹점 획득 퍼널을 설계할 수 있습니다',
+        desc: '기술 검증과 비즈니스 검증이 동시에 진행되는 긴 의사결정 여정 — 이 구조를 읽고 각 단계에 맞는 캠페인을 설계하는 것이 12년간 해온 일입니다. 올거나이즈에서 엔터프라이즈 AI SaaS의 인바운드 퍼널을 0에서 구축해 10개월간 유효 리드 226건(유효율 84.3%), 전환율 최대 14.3%를 기록했습니다.'
+      },
+      {
+        num: '02',
+        title: 'CRM 자동화와 세일즈 연계 — 인바운드에서 아웃바운드로 전이 가능합니다',
+        desc: 'INQ- 번호 체계 설계, Zapier→슬랙 자동 전달, MQL/SQL 분류 후 세일즈 핸드오프, 미처리 48시간 리마인드까지 — 인바운드 CRM 파이프라인을 단독 구축했습니다. 리드 스코어링, 세그먼트 분류, 핸드오프 기준 정의는 이미 갖추고 있고, 아웃바운드 도구 적응은 빠릅니다. 착수 1개월 내 퍼널 설계·가동한 경험이 있습니다.'
+      },
+      {
+        num: '03',
+        title: 'AI와 자동화로 1인이 시스템을 만든 경험 — 수치로 판단합니다',
+        desc: 'Python으로 Mixpanel 퍼널 분석 자동화, Semrush API 기반 SEO 리포팅 시스템을 직접 구축했습니다. 1인 체제에서 자동화로 커버 범위를 넓힌 경험, 글로벌 1억 예산을 A/B 테스트로 CPA 83% 절감한 경험, 데이터를 먼저 보고 감수할 대가를 경영진에 공유하는 습관. 토스가 말하는 "수치로 소통하는 문화"가 제가 일하는 방식입니다.'
+      }
+    ],
+    jdRows: [
+      { req: '리드젠→전환 퍼널 설계·실행',       project: '올거나이즈 · 마롱',    result: 'GTM·Mixpanel 퍼널 구축, 전환율 14.3%, 유효 리드 226건' },
+      { req: '다양한 채널 맞춤 전략',             project: '사운드플랫폼',          result: 'Google·YouTube·META·Reddit·LinkedIn 글로벌 1억 운영' },
+      { req: '홈페이지·콘텐츠 UX 최적화',         project: '올거나이즈 · 마롱',    result: 'Webflow 한/영, 랜딩 A/B 테스트, 체류시간 +80%' },
+      { req: 'AI 활용 아웃바운드 CRM 자동화',     project: '올거나이즈',            result: '인바운드 CRM 자동화 (Zapier·Python) → 아웃바운드 전이 가능' },
+      { req: '캠페인 성과 모니터링·KPI 관리',     project: '올거나이즈 · 사운드 · 마롱', result: 'Mixpanel 퍼널 분석, A/B 6개월 반복, OKR·PDCA' },
+      { req: 'Data-Driven 콘텐츠 마케팅 (우대)',  project: '올거나이즈',            result: '콘텐츠별 전환율 추적, 전환율 기반 다음 콘텐츠 기획' },
+      { req: '어트리뷰션 기반 퍼포먼스 추적 (우대)', project: '올거나이즈 · 사운드',  result: 'GTM 이벤트 태깅, 채널별 분리 추적, 국가별 CPA 실시간' },
     ]
   }
 };
@@ -91,11 +136,36 @@ function initCompany() {
   const contactLine = document.getElementById('contact-line');
   if (contactLine) contactLine.textContent = co.contactLine;
 
-  // Hero 타겟 배지 — "for 테크타카"
+  // Hero 타겟 배지 — "for 토스페이먼츠"
   const heroTarget = document.getElementById('hero-target');
   if (heroTarget) {
     heroTarget.textContent = 'for ' + co.name;
     heroTarget.style.display = '';
+  }
+
+  // 다운로드 링크 동적 교체
+  if (co.downloads) {
+    // Hero 포트폴리오 PDF
+    const heroPdf = document.querySelector('a[href="김지수_포트폴리오.pdf"]');
+    if (heroPdf && co.downloads.portfolio) heroPdf.setAttribute('href', co.downloads.portfolio);
+
+    // Contact 포트폴리오 PDF
+    const contactPdf = document.querySelector('#contact a[href="김지수_포트폴리오.pdf"]');
+    if (contactPdf && co.downloads.portfolio) contactPdf.setAttribute('href', co.downloads.portfolio);
+
+    // 드롭다운 자기소개서 PDF
+    const coverPdf = document.querySelector('.dropdown-menu a[href="김지수_자기소개서.pdf"]');
+    if (coverPdf && co.downloads.cover) coverPdf.setAttribute('href', co.downloads.cover);
+  }
+
+  // Documents 섹션 embed 교체
+  if (co.embedSources) {
+    if (co.embedSources.cover) {
+      const coverFrame = document.querySelector('#doc-cover iframe');
+      if (coverFrame) coverFrame.setAttribute('src', co.embedSources.cover);
+      const coverPdfBtn = document.querySelector('#doc-cover a[download]');
+      if (coverPdfBtn && co.downloads && co.downloads.cover) coverPdfBtn.setAttribute('href', co.downloads.cover);
+    }
   }
 }
 
