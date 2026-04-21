@@ -72,7 +72,13 @@
 }
 
 [data-theme="light"] .hero-name {
-  -webkit-text-stroke: 1px rgba(13, 148, 136, 0.4);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--accent-green);
+  background-clip: unset;
+  color: var(--accent-green);
+  filter: none;
+  -webkit-text-stroke: 0;
 }
 
 /* ==============================
