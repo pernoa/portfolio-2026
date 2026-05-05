@@ -4,7 +4,29 @@
 
 // ── Company Targeting (?c=xxx) ────────────────────────────────
 const COMPANIES = {
-  techtaka: {
+    moyoplan: {
+    name: "모요플랜",
+    navLabel: "Why Moyoplan",
+    jdTitle: "모요플랜 JD ↔ 내 경험 매핑",
+    whyTitle: "왜 모요플랜인가",
+    contactLine: "모요플랜 Marketing Lead 포지션에 지원합니다.",
+    downloads: { portfolio: "김지수_포트폴리오_모요플랜.pdf", cover: "김지수_자소서_모요플랜.pdf", resume: "김지수_이력서_모요플랜.pdf" },
+    whyCards: [
+      { num: "01", title: "마케팅 성장 엔진을 이미 3번 만들어봤습니다", desc: "문의 118%↑·매출 140%↑, 80개국 5만 유저, 문의 200%. 모요플랜이 필요한 독립 성장 엔진을 이미 만들어봤습니다." },
+      { num: "02", title: "LTV/CAC로 예산을 배분하는 리드", desc: "LTV 9만원 측정→CAC 역산→채널별 배분. CPA 83%↓, 유료전환 42%↓." },
+      { num: "03", title: "AI 자동화로 1인=팀급 산출", desc: "Claude Code 20편 2주, Python Mixpanel, Semrush API. 합류 첫날부터 같은 방식으로." }
+    ],
+    jdRows: [
+      { req: "통합 마케팅 + 예산", project: "사운드·올거나이즈", result: "CEO 직보, LTV/CAC 월 1억 배분" },
+      { req: "퍼포먼스·CRM·SEO 통합", project: "올거나이즈", result: "1인 체제, 문의 200%" },
+      { req: "가설-실험-측정", project: "마롱·사운드", result: "OKR·PDCA, CPA 83%↓" },
+      { req: "팀 빌딩 + 채용", project: "사운드·마롱", result: "0→1 2회, 다국적 팀" },
+      { req: "AI 활용 (우대)", project: "올거나이즈", result: "Claude Code·Python·API" },
+      { req: "LTV/CAC (우대)", project: "사운드플랫폼", result: "LTV→CAC 역산→배분" }
+    ]
+  },
+
+techtaka: {
     name: '테크타카',
     navLabel: 'Why Techtaka',
     jdTitle: '테크타카 JD ↔ 내 경험 매핑',
