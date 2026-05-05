@@ -140,6 +140,42 @@ techtaka: {
       { req: 'CEO 미디어 인터뷰 준비 서포트',                 project: '올거나이즈',                  result: 'CEO·글로벌 리더십 영문 커뮤니케이션 (근접 경험, 미디어 인터뷰 답변 초안은 입사 후 보완)' },
       { req: '연구자 채용 브랜딩',                            project: '사운드 · 올거나이즈 · 무버먼', result: '다국적 팀 채용·교육 경험. KAIST 경영대학 캠페인 CTR 0.04%→1.26%. 대학 연구자 커뮤니티 브랜딩은 입사 후 새로 설계' }
     ]
+  },
+
+  tosscore: {
+    name: '토스코어',
+    navLabel: 'Why Toss Core',
+    jdTitle: '토스코어 JD ↔ 내 경험 매핑',
+    whyTitle: '왜 토스코어인가',
+    contactLine: '토스코어 Marketing Manager (Growth) 포지션에 지원합니다.',
+    downloads: {
+      portfolio: '김지수_포트폴리오_토스코어.pdf'
+    },
+    whyCards: [
+      {
+        num: '01',
+        title: '가설→실험→검증을 쉬지 않는 사람입니다',
+        desc: '사운드플랫폼에서 10개월간 약 30~40회 A/B 테스트를 주 단위로 반복하며 CPA를 12,000원에서 2,000원으로 낮췄습니다. K-POP 가설이 틀렸다는 걸 3주 만에 잡고 방향을 전환한 경험이 있습니다. 가설이 틀리면 빠르게 바꾸는 데 익숙합니다.'
+      },
+      {
+        num: '02',
+        title: 'Paid Raw Data를 직접 다루는 마케터입니다',
+        desc: 'Google Ads·Mixpanel 로데이터를 CSV로 내려받아 Python으로 정제하고, 개발자와 협업해 서버 로그를 매칭 분석해왔습니다. 대시보드 평균이 아닌 전환 유저 기준으로 판단하며, 모수 500건 이상에서만 결론을 내립니다.'
+      },
+      {
+        num: '03',
+        title: '도메인은 새롭지만, 방법론은 검증됐습니다',
+        desc: '에듀테크→음악→뷰티/조형물→AI SaaS까지 5번의 도메인 전환에서 매번 성과를 냈습니다. 토스코어의 실험 문화와 데이터 기반 의사결정 방식을 깊이 공부하면서 이 환경에서 일하고 싶다는 확신이 생겼습니다.'
+      }
+    ],
+    jdRows: [
+      { req: 'CRM+Paid 기반 Growth',          project: '올거나이즈 · 사운드',    result: 'CPA 83%↓, 문의 200%. 세그먼트별 메시지 분리 운영' },
+      { req: '가설 검증으로 숫자 만든 경험',     project: '사운드플랫폼',           result: '30~40회 A/B 테스트, 캠페인 v1→v6 주 단위 반복' },
+      { req: '유저 Raw Data 직접 다룬 경험',     project: '사운드 · 올거나이즈',    result: 'Google Ads CSV + 서버 로그 Python 매칭 분석' },
+      { req: 'CVR 개선',                        project: '마롱 · 올거나이즈',      result: '세그먼트별 랜딩 분리, CTA 구체화로 문의·계약 증가' },
+      { req: 'SQL 세그먼트 추출 (우대)',          project: '올거나이즈',             result: 'Mixpanel·Python 기반 세그먼트 추출, AI 도구 활용' },
+      { req: 'Tableau 대시보드 (우대)',           project: '-',                     result: '직접 경험 없음. Mixpanel·GA·Python 대시보드 구축 경험' },
+    ]
   }
 };
 
