@@ -2037,7 +2037,7 @@ section {
   }
 }
 
-/* ===== PRINT ENHANCEMENTS (added for PDF export) ===== */
+/* ===== PRINT ENHANCEMENTS - landscape, no margin (added for PDF export) ===== */
 @media print {
   .scroll-reveal, [class*="reveal"] { opacity: 1 !important; transform: none !important; transition: none !important; }
   [data-target] { opacity: 1 !important; }
