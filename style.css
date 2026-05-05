@@ -1922,7 +1922,7 @@ section {
   .section-title { font-size: 1.3rem !important; margin-bottom: 0.5rem !important; }
 
   /* Page break — 카드/항목 단위만 (섹션 단위 금지) */
-  @page { margin: 1.2cm; size: A4; }
+  @page { margin: 0; size: A4 landscape; }
   h1, h2, h3 { page-break-after: avoid; }
   .project-card { break-inside: avoid; box-shadow: none !important; transform: none !important; }
   .project-card:hover { transform: none; box-shadow: none; }
