@@ -2036,3 +2036,13 @@ section {
     border: 1px solid #ddd !important;
   }
 }
+
+/* ===== PRINT ENHANCEMENTS (added for PDF export) ===== */
+@media print {
+  .scroll-reveal, [class*="reveal"] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  [data-target] { opacity: 1 !important; }
+  .tab-panel, [role="tabpanel"] { display: block !important; opacity: 1 !important; height: auto !important; overflow: visible !important; }
+  .tab-nav { display: none !important; }
+  section { page-break-inside: avoid; }
+  .project-card, .metric-card, .why-card, .timeline-item, .code-block-wrapper { page-break-inside: avoid; }
+}

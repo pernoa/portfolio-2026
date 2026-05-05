@@ -1283,5 +1283,10 @@ modules = [<span class="code-str">"config"</span>, <span class="code-str">"colle
 
 
 <script src="script.js"></script>
+<script>
+function forceCounters(){document.querySelectorAll('[data-target]').forEach(function(el){var t=el.getAttribute('data-target');var s=el.getAttribute('data-suffix')||'';el.textContent=t+s;})}
+window.addEventListener('beforeprint',forceCounters);
+setTimeout(forceCounters,800);
+</script>
 </body>
 </html>
