@@ -149,7 +149,8 @@ techtaka: {
     whyTitle: '왜 쿠팡페이 신사업인가',
     contactLine: '쿠팡페이 그로스 마케팅 담당자(신사업) 포지션에 지원합니다.',
     downloads: {
-      portfolio: '김지수_포트폴리오_쿠팡페이.pdf'
+      portfolio: '김지수_이력서_포트폴리오_쿠팡페이.pdf',
+      resume: '김지수_이력서_포트폴리오_쿠팡페이.pdf'
     },
     whyCards: [
       {
@@ -289,6 +290,22 @@ function initCompany() {
     // 드롭다운 자기소개서 PDF
     const coverPdf = document.querySelector('.dropdown-menu a[href="김지수_자기소개서.pdf"]');
     if (coverPdf && co.downloads.cover) coverPdf.setAttribute('href', co.downloads.cover);
+
+    // 드롭다운 이력서 PDF
+    const resumePdf = document.querySelector('.dropdown-menu a[href="김지수_이력서.pdf"]');
+    if (resumePdf && co.downloads.resume) resumePdf.setAttribute('href', co.downloads.resume);
+
+    // 드롭다운 경력기술서 PDF (이력서와 같은 파일로 매핑)
+    const careerPdf = document.querySelector('.dropdown-menu a[href="김지수_경력기술서.pdf"]');
+    if (careerPdf && co.downloads.resume) careerPdf.setAttribute('href', co.downloads.resume);
+
+    // 문서 섹션 이력서 PDF
+    const docResume = document.querySelector('a[href="김지수_이력서.pdf"][download]');
+    if (docResume && co.downloads.resume) docResume.setAttribute('href', co.downloads.resume);
+
+    // 문서 섹션 경력기술서 PDF
+    const docCareer = document.querySelector('a[href="김지수_경력기술서.pdf"][download]');
+    if (docCareer && co.downloads.resume) docCareer.setAttribute('href', co.downloads.resume);
   }
 
   // Documents 섹션 embed 교체
