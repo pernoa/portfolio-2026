@@ -142,6 +142,42 @@ techtaka: {
     ]
   },
 
+  coupangpay: {
+    name: '쿠팡페이',
+    navLabel: 'Why Coupang Pay',
+    jdTitle: '쿠팡페이 JD ↔ 내 경험 매핑',
+    whyTitle: '왜 쿠팡페이 신사업인가',
+    contactLine: '쿠팡페이 그로스 마케팅 담당자(신사업) 포지션에 지원합니다.',
+    downloads: {
+      portfolio: '김지수_포트폴리오_쿠팡페이.pdf'
+    },
+    whyCards: [
+      {
+        num: '01',
+        title: '신사업에서 구조를 만드는 일을 3번 해왔습니다',
+        desc: '마케팅팀 신설(사운드플랫폼), 1인→팀 확장·안착(마롱컴퍼니), 1인 AI 체제로 팀 수준 운영(올거나이즈). 신사업에 필요한 건 앱 전문가가 아닌, 없는 곳에서 구조를 만드는 사람입니다.'
+      },
+      {
+        num: '02',
+        title: '데이터로 의사결정합니다',
+        desc: 'LTV 9만원 측정→CAC 역산→채널별 예산 배분. CPA 83%↓(6개월 A/B). Mixpanel·Google Ads·인바운드 데이터를 Python과 AI로 통합 분석하는 시스템을 직접 구축했습니다.'
+      },
+      {
+        num: '03',
+        title: '갭은 인정합니다. 대신 빠르게 배웁니다',
+        desc: '앱 마케팅/핀테크 도메인은 처음입니다. 하지만 도메인 전환 5회(음향→대행사→미술→AI 음악 SaaS→엔터프라이즈 AI Solution) 매번 성과를 냈습니다.'
+      }
+    ],
+    jdRows: [
+      { req: '앱 그로스 전략·퍼널 최적화',    project: '사운드·올거나이즈',    result: 'CPA 83%↓, 문의 2배. 웹 기반이나 퍼널 최적화 원리 동일' },
+      { req: '퍼포먼스 광고·ASO',             project: '사운드·올거나이즈',    result: 'Google/Meta 월 1억 운영. ASO 미경험→SEO 67→90점 전이' },
+      { req: 'CRM/Push/In-app 리텐션',       project: '올거나이즈',           result: '이메일 CRM 설계·운영. Push/In-app은 학습 필요' },
+      { req: '데이터 기반 퍼널·코호트 분석',   project: '사운드·올거나이즈',    result: 'Mixpanel 퍼널 Python 자동화, 코호트 분석 직접 수행' },
+      { req: '혜택·리워드·포인트 정책',        project: '-',                   result: '직접 경험 없음. A/B 테스트 프레임워크로 접근 가능' },
+      { req: 'A/B 테스트 설계 및 분석',        project: '사운드·마롱·올거나이즈', result: '6개월 A/B 사이클, OKR·PDCA 도입·운영' }
+    ]
+  },
+
   tosscore: {
     name: '토스코어',
     navLabel: 'Why Toss Core',
