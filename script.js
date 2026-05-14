@@ -190,6 +190,11 @@ techtaka: {
       cover: '김지수_자기소개서_오늘의집.pdf',
       resume: '김지수_이력서_경력기술서_오늘의집.pdf'
     },
+    embedSources: {
+      resume: '이력서_오늘의집_embed.html',
+      cover: '자기소개서_오늘의집_embed.html',
+      career: '경력기술서_오늘의집_embed.html'
+    },
     whyCards: [
       {
         num: '01',
@@ -353,6 +358,14 @@ function initCompany() {
       if (coverFrame) coverFrame.setAttribute('src', co.embedSources.cover);
       const coverPdfBtn = document.querySelector('#doc-cover a[download]');
       if (coverPdfBtn && co.downloads && co.downloads.cover) coverPdfBtn.setAttribute('href', co.downloads.cover);
+    }
+    if (co.embedSources.resume) {
+      const resumeFrame = document.querySelector('#doc-resume iframe');
+      if (resumeFrame) resumeFrame.setAttribute('src', co.embedSources.resume);
+    }
+    if (co.embedSources.career) {
+      const careerFrame = document.querySelector('#doc-career iframe');
+      if (careerFrame) careerFrame.setAttribute('src', co.embedSources.career);
     }
   }
 }
