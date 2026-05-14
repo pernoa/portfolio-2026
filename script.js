@@ -179,6 +179,44 @@ techtaka: {
     ]
   },
 
+  ohouse: {
+    name: '오늘의집',
+    navLabel: 'Why O!HOUSE',
+    jdTitle: '오늘의집 Growth Marketer (UA) JD ↔ 내 경험 매핑',
+    whyTitle: '왜 오늘의집인가',
+    contactLine: '오늘의집(버킷플레이스) Growth Marketer (UA) 포지션에 지원합니다.',
+    downloads: {
+      portfolio: '김지수_포트폴리오_오늘의집.pdf',
+      cover: '김지수_자기소개서_오늘의집.pdf',
+      resume: '김지수_이력서_경력기술서_오늘의집.pdf'
+    },
+    whyCards: [
+      {
+        num: '01',
+        title: '해외 D2C UA — 데이터 0에서 시작해 CPA 6배 절감',
+        desc: '사운드플랫폼에서 한국 시장이 좁아 처음부터 글로벌 타겟. 데이터·레퍼런스 0에서 시작해 홍대 외국인 뮤지션 비대면 인터뷰로 채널 가설을 만들고, Reddit·Meta·Google Ads 최소비용 테스트 → 롱테일 키워드 → v6.0까지 30~40회 이터레이션. 가입 CPA 12,000원→2,000원(Google Ads 기준), 미국·캐나다 일부 기간 24만→14만. 약 10개월 총 1.3억원 집행.'
+      },
+      {
+        num: '02',
+        title: '세그먼트 설계 + 어트리뷰션 직접 구축',
+        desc: '마롱컴퍼니에서 5세그먼트(대기업·중소·개인매장·개인기념·공공기관)별 랜딩·소재·레퍼런스 분리해 매출 140%↑·문의 118%↑. 올거나이즈에서 어트리뷰션 트래킹 0인 상태에서 Mixpanel·UTM·이벤트 태깅 사양 직접 설계·구축. 오늘의집의 1인가구·신혼·이사·혼수·반려동물 라이프 이벤트 세그먼트에 같은 원리 적용 가능.'
+      },
+      {
+        num: '03',
+        title: 'MMP 갭은 도구 차이 — 어트리뷰션 원리는 직접 만든 사람',
+        desc: 'Appsflyer·Adjust 직접 운영 경험은 없지만, 이벤트 정의·태깅 QA·UTM 설계·API 백필까지 어트리뷰션 하위 구조를 직접 만들어왔습니다. Mixpanel Export API + Python 자동화 6모듈, 국가별 CPA Google Ads API 모니터링. 입사 60일 안에 SKAN·딥링크·포스트백 흡수해 UA 실험 설계·리포팅을 독립 운영하겠습니다.'
+      }
+    ],
+    jdRows: [
+      { req: '5년+ 퍼포먼스/그로스 마케팅',           project: '사운드 · 마롱 · 올거나이즈',     result: '12년+ 경력. 해외 D2C UA + 국내 B2B/D2C 풀퍼널 직접 운영' },
+      { req: 'Google·Meta Self-serve 월 예산 운영',    project: '사운드플랫폼',                  result: 'Google Ads·Meta·Reddit·YouTube 글로벌 동시 집행, 약 1.3억원 직접 운용' },
+      { req: '1st Party Data 광고·성과 분석 (SQL)',   project: '올거나이즈 · 사운드',           result: 'Mixpanel·UTM·이벤트 태깅 직접 구축, Python으로 90일+ 백필. SQL은 AI 도구 활용' },
+      { req: '앱 마케팅 (MMP·이벤트 설계·SDK)',        project: '올거나이즈',                    result: 'GTM·Mixpanel 어트리뷰션 직접 운영. 모바일 MMP는 도구 차이, 60일 자립 목표' },
+      { req: '크리에이티브 A/B 테스트',                project: '사운드플랫폼',                  result: '약 30~40회 A/B 테스트, 채널·국가·소재 교차 검증, 랜딩 가설 비교' },
+      { req: '대행사·내부 유관부서 협업',              project: '마롱 · 사운드 · 올거나이즈',    result: '디자이너·개발자·세일즈·외주사 협업 경험. 사양서 정의·핸드오프 직접' }
+    ]
+  },
+
   tosscore: {
     name: '토스코어',
     navLabel: 'Why Toss Core',
