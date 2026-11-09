@@ -271,6 +271,9 @@ function initCompany() {
     if (navWhy) navWhy.style.display = 'none';
     const jdTitle = document.getElementById('jd-section-title');
     if (jdTitle) jdTitle.textContent = '// JD ↔ 내 경험 매핑';
+    // 공용 자소서는 미정비 → 범용 모드에서 숨김(회사별 지원은 지원 메시지로 대체)
+    document.querySelectorAll('.doc-tab[data-doc="cover"], #doc-cover, .dropdown-menu a[href="김지수_자기소개서.pdf"]')
+      .forEach(el => { el.style.display = 'none'; });
     return;
   }
 
