@@ -259,9 +259,12 @@ techtaka: {
   }
 };
 
+// 2026-11-12: 회사별 모드(?c=) 끔 — 7월 지원용 화면에 옛 수치가 남아 있어 범용 화면만 노출. 다시 켜려면 true
+const COMPANY_MODE_ENABLED = false;
+
 function initCompany() {
   const key = new URLSearchParams(window.location.search).get('c');
-  const co = COMPANIES[key];
+  const co = COMPANY_MODE_ENABLED ? COMPANIES[key] : undefined;
   const whySection = document.getElementById('why');
   const navWhy = document.getElementById('nav-why');
 
